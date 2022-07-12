@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +24,6 @@ Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
 Route::prefix('tentang')->group( function(){
     Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
 });
+
+Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('index');
+// Route::get('/auth/login',[LoginController::class,'showLoginForm'])->name('showLoginForm');

@@ -9,17 +9,6 @@ use Illuminate\Routing\Controller as BaseController;
 
 use App\Repositories\Front\CartRepository;
 
-/**
- * Controller
- *
- * PHP version 7
- *
- * @category Controller
- * @package  Controller
- * @author   Sugiarto <sugiarto.dlingo@gmail.com>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://localhost/
- */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -38,7 +27,7 @@ class Controller extends BaseController
      */
     public function __construct()
     {
-        // $this->initAdminMenu();
+        $this->initAdminMenu();
 
         // $this->cartRepository = new CartRepository();
     }
@@ -48,11 +37,11 @@ class Controller extends BaseController
      *
      * @return void
      */
-    // private function initAdminMenu()
-    // {
-    //     $this->data['currentAdminMenu'] = 'dashboard';
-    //     $this->data['currentAdminSubMenu'] = '';
-    // }
+    private function initAdminMenu()
+    {
+        $this->data['currentAdminMenu'] = 'dashboard';
+        $this->data['currentAdminSubMenu'] = '';
+    }
 
     /**
      * Load view for particular theme
