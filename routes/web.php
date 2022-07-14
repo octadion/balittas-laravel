@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +27,24 @@ Route::prefix('tentang')->group( function(){
     Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
 });
 
-Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('index');
+// Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('index');
 // Route::get('/auth/login',[LoginController::class,'showLoginForm'])->name('showLoginForm');
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::group(['middleware' =>'role:admin'], function(){
+        Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('index');
+        Route::resource('/admin/kategori',CategoryController::class);
+        Route::post('/admin/kategori/store', [CategoryController::class,'store'])->name('store');
+    });
+    Route::group(['middleware' =>'role:user'], function(){
+        Route::get('/home',[HomeController::class,'index'])->name('home');
+    });
+    Route::group(['middleware' =>'role:pegawai'], function(){
+
+    });
+});
+
+

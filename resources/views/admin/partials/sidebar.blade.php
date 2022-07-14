@@ -23,6 +23,10 @@
             <a href="#" class="nav-link">
               <i class="fas fa-file-alt"></i> <span>Berita</span></a>
           </li>
+          <li class="nav-item {{ (request()->is('admin/kategori')) ? 'active' : '' }}">
+            <a href="{{ url('admin/kategori') }}" class="nav-link">
+              <i class="fas fa-file-alt"></i> <span>Kategori</span></a>
+          </li>
           <li class="menu-header">Manajemen User</li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Akun</span></a>
