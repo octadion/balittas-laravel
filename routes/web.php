@@ -38,6 +38,9 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('index');
         Route::resource('/admin/kategori',CategoryController::class);
         Route::post('/admin/kategori/store', [CategoryController::class,'store'])->name('store');
+        Route::post('/admin/kategori/update', [CategoryController::class,'update'])->name('update');
+        Route::post('/admin/kategori/showUpdate', [CategoryController::class,'showUpdate'])->name('showUpdate');
+        Route::post('/admin/kategori/delete', [CategoryController::class,'delete'])->name('delete');
     });
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');

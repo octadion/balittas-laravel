@@ -14,6 +14,9 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/jquery.dataTables.css') }}">
+  
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.min.css">
 </head>
 
 <body>
@@ -42,6 +45,8 @@
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+  {{-- <script src="{{ asset('admin/assets/js/page/modules-datatables.js')  }}"></script> --}}
+  <script type="text/javascript" charset="utf8" src="{{ asset('admin/assets/js/jquery.dataTables.js') }}"></script>
 
   <!-- Page Specific JS File -->
 </body>

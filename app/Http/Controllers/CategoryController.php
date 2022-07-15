@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use DataTables;
 class CategoryController extends Controller
 {
     /**
@@ -15,7 +15,18 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::select('id', 'name', 'slug')->latest()->paginate(10);
+        $category = Category::get();
+        if(request()->ajax()){
+            return datatables()->of($category)
+            ->addColumn('aksi', function($category){
+                $button ="<button class='edit btn btn-danger' id='".$category->id."'>Edit</button>";
+                $button  .="<button class='hapus btn btn-danger' id='".$category->id."'>Hapus</button>";
+                return $button;
+            })
+            ->rawColumns(['aksi'])
+            ->make(true);
+        }
+        // $category = Category::select('id', 'name', 'slug')->latest()->paginate(10);
         return view('admin.category.index', compact('category'));
     }
 
@@ -24,6 +35,14 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function delete(Request $request)
+    {
+        $id = $request->id;
+        $data = Category::find($id);
+        $data->delete();
+        return response()->json(['text' => 'berhasil dihapus'], 200);
+    }
+
     public function create()
     {
         //
@@ -40,10 +59,22 @@ class CategoryController extends Controller
         // $data['name'] = $request->name;
         // $data['']
         // Category::create($data);
-        Category::create([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name, '-')
-        ]);
+        // Category::create([
+        //     'name' => $request->name,
+        //     'slug' => Str::slug($request->name, '-')
+        // ]);
+        // dd($request->all());
+        $category = new Category();
+        $category->name = Str::title($request->name);
+        $category->slug =  Str::slug($request->name, '-');
+        $save = $category->save();
+        if($save){
+            return response()->json(['data'=>$category,
+            'text'=>'Data berhasil disimpan'], 200);
+        }else{
+            return response()->json(['data'=>$category,
+            'text'=>'Data berhasil disimpan']);
+        }
     }
 
     /**
@@ -55,6 +86,13 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+    }
+    public function showUpdate(Request $request)
+    {
+        # code...
+        $id = $request->id;
+        $data = Category::find($id);
+        return response()->json(['data' => $data]);
     }
 
     /**
@@ -75,9 +113,21 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $category = [
+            'name' => Str::title($request->name),
+            'slug' => Str::slug($request->name, '-')
+
+        ];
+        $data = Category::find($id);
+        $save = $data->update($category);
+        if ($save) {
+            return response()->json(['text' => 'berhasil diubah'], 200);
+        } else {
+            return response()->json(['text' => 'Gagal diubah'], 422);
+        }
     }
 
     /**

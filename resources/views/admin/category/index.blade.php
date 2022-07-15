@@ -14,120 +14,20 @@
         <div class="card-header">
           <h4>Advanced Table</h4>
           <div class="card-header-form">
-            {{-- <form>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-btn">
-                  <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-            </form> --}}
             <button class="btn btn-primary" id="btnadd" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"> Tambah</i></button>
           </div>
         </div>
-        <div class="card-body p-0">
+        <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-striped">
-              <tr>
-                <th>
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                    <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </th>
-                <th>Task Name</th>
-                <th>Progress</th>
-                <th>Members</th>
-                <th>Due Date</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-              <tr>
-                <td class="p-0 text-center">
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                    <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </td>
-                <td>Create a mobile app</td>
-                <td class="align-middle">
-                  <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                    <div class="progress-bar bg-success" data-width="100"></div>
-                  </div>
-                </td>
-                <td>
-                  <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                </td>
-                <td>2018-01-20</td>
-                <td><div class="badge badge-success">Completed</div></td>
-                <td><a href="#" class="btn btn-secondary">Detail</a></td>
-              </tr>
-              <tr>
-                <td class="p-0 text-center">
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                    <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </td>
-                <td>Redesign homepage</td>
-                <td class="align-middle">
-                  <div class="progress" data-height="4" data-toggle="tooltip" title="0%">
-                    <div class="progress-bar" data-width="0"></div>
-                  </div>
-                </td>
-                <td>
-                  <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
-                  <img alt="image" src="../assets/img/avatar/avatar-3.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
-                  <img alt="image" src="../assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
-                </td>
-                <td>2018-04-10</td>
-                <td><div class="badge badge-info">Todo</div></td>
-                <td><a href="#" class="btn btn-secondary">Detail</a></td>
-              </tr>
-              <tr>
-                <td class="p-0 text-center">
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                    <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </td>
-                <td>Backup database</td>
-                <td class="align-middle">
-                  <div class="progress" data-height="4" data-toggle="tooltip" title="70%">
-                    <div class="progress-bar bg-warning" data-width="70"></div>
-                  </div>
-                </td>
-                <td>
-                  <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                  <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
-                </td>
-                <td>2018-01-29</td>
-                <td><div class="badge badge-warning">In Progress</div></td>
-                <td><a href="#" class="btn btn-secondary">Detail</a></td>
-              </tr>
-              <tr>
-                <td class="p-0 text-center">
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-4">
-                    <label for="checkbox-4" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </td>
-                <td>Input data</td>
-                <td class="align-middle">
-                  <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                    <div class="progress-bar bg-success" data-width="100"></div>
-                  </div>
-                </td>
-                <td>
-                  <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                  <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
-                  <img alt="image" src="../assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
-                  <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
-                </td>
-                <td>2018-01-16</td>
-                <td><div class="badge badge-success">Completed</div></td>
-                <td><a href="#" class="btn btn-secondary">Detail</a></td>
-              </tr>
+            <table class="table table-striped" width="100%" id="tableKategori">
+              <thead>
+                <tr>
+                  <th>No. </th>
+                  <th>Kategori</th>
+                  <th>Slug</th>
+                  <th style="width: 20%;">Aksi</th>
+                </tr>
+              </thead>
             </table>
           </div>
         </div>
@@ -139,41 +39,143 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title" id="title">Tambah Kategori</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Username</label>
+          <label>Nama Kategori</label>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Email" name="name" id="name">
+            <input type="text" class="form-control" name="name" id="name">
+            {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
+            <input type="hidden" class="form-control" name="id" id="id">
           </div>
         </div>
       </div>
       <div class="modal-footer bg-whitesmoke br">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="save" class="btn btn-primary" onclick="store()">Save changes</button>
+        <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+        <button type="button" id="save" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
-
+    table()
+    $('#modal').on('hidden.bs.modal', function () {
+        $('.modal').find('text,input,button').val('');
+        $('#save').text('Save')
+});
 })
+function table() {
+  $('#tableKategori').DataTable({
+    serverside: true,
+    responsive: true,
+    destroy: true,
+    ajax: {
+      url: "{{ route('kategori.index') }}"
+    },
+    columns: [{
+      "data":null,"sortable":false,
+      render:function (data, type, row, meta) { 
+        return meta.row + meta.settings._iDisplayStart + 1
+       }
+    },
+    {data: 'name', name: 'name'},
+    {data: 'slug', name: 'slug'},
+    {data: 'aksi', name: 'aksi'},
+  ]
+  });
+}
+</script>
+<script>
+$('#save').on('click',function () {
+        if ($(this).text() === 'Update') {
+            // console.log('Edit');
+           update()
+        } else {
+          store()
+        }
+    })
 function store(){
   var name = $('#name').val();
   $.ajax({
     url: '{{ url("admin/kategori/store") }}',
     data: {name:name, _token: '{{csrf_token()}}'},
     type: 'post',
-    success:function(data){
-      alert('tes');
+    success:function(res){
+      console.log(res);
+      alert(res.text);
+      $('#close').click();
+      $('#tableKategori').DataTable().ajax.reload();
+      $('#name').val(null);
+    },
+    error:function(xhr){
+      alert(xhr.responJson.text);
     }
   });
 }
+//cari update slug, ubah kondisi jadi page value
+
+$(document).on('click','.edit', function(){
+  let id = $(this).attr('id');
+  $('#btnadd').click();
+  $('#save').text('Update');
+  $('#title').text('Update Kategori');
+  $.ajax({
+    url: '{{ url("admin/kategori/showUpdate") }}',
+    data: {id:id, _token: '{{csrf_token()}}'},
+    type: 'post',
+    success:function(res){
+      console.log(res);
+      $('#id').val(res.data.id);
+      $('#name').val(res.data.name);
+      $('#slug').val(res.data.slug);
+    },
+  });
+});
+function update() {
+        $.ajax({
+                url : "{{ url('admin/kategori/update')}}",
+                type : "post",
+                data : {
+                    id : $('#id').val(),
+                    name : $('#name').val(),
+                    _token: "{{csrf_token()}}"
+                },
+                success : function (res) {
+                    console.log(res);
+                    alert(res.text)
+                    $('#close').click()
+                    $('#tableKategori').DataTable().ajax.reload()
+                    $('#name').val(null)
+                    // $('#telp').val(null)
+                    // $('#alamat').val(null)
+                    $('#save').text('Save')
+                },
+                error : function (xhr) {
+                    alert(xhr.responJson.text)
+                }
+            }) 
+    }
+    $(document).on('click','.hapus', function () {
+        let id = $(this).attr('id')
+        $.ajax({
+            url : "{{ url('admin/kategori/delete')}}",
+            type : 'post',
+            data: {
+                id: id,
+                "_token" : "{{csrf_token()}}"
+            },
+            success: function (params) {
+                alert(params.text)
+                $('#tableKategori').DataTable().ajax.reload()
+            }
+        })
+    })
 
 </script>
 
