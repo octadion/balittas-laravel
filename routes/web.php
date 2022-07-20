@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\PostController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,12 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/admin/kategori/update', [CategoryController::class,'update'])->name('update');
         Route::post('/admin/kategori/showUpdate', [CategoryController::class,'showUpdate'])->name('showUpdate');
         Route::post('/admin/kategori/delete', [CategoryController::class,'delete'])->name('delete');
+        Route::resource('/admin/post',PostController::class);
+        Route::get('/admin/post/create', [PostController::class,'create'])->name('create');
+        Route::post('/admin/post/store', [PostController::class,'store'])->name('store');
+        Route::post('/admin/post/content_upload', [PostController::class,'content_upload'])->name('content_upload');
+        Route::post('/admin/post/update/{id}', [PostController::class,'update'])->name('update');
+        Route::post('/admin/post/delete/{id}', [PostController::class,'delete'])->name('delete');
     });
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');

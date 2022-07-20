@@ -25,7 +25,7 @@
                   <th>No. </th>
                   <th>Kategori</th>
                   <th>Slug</th>
-                  <th style="width: 20%;">Aksi</th>
+                  <th class="text-center" style="width: 20%;">Aksi</th>
                 </tr>
               </thead>
             </table>
@@ -93,13 +93,12 @@ function table() {
 </script>
 <script>
 $('#save').on('click',function () {
-        if ($(this).text() === 'Update') {
-            // console.log('Edit');
-           update()
-        } else {
-          store()
-        }
-    })
+  if ($(this).text() === 'Update') {
+     update()
+  } else {
+    store()
+  }
+})
 function store(){
   var name = $('#name').val();
   $.ajax({
@@ -138,28 +137,28 @@ $(document).on('click','.edit', function(){
   });
 });
 function update() {
-        $.ajax({
-                url : "{{ url('admin/kategori/update')}}",
-                type : "post",
-                data : {
-                    id : $('#id').val(),
-                    name : $('#name').val(),
-                    _token: "{{csrf_token()}}"
-                },
-                success : function (res) {
-                    console.log(res);
-                    alert(res.text)
-                    $('#close').click()
-                    $('#tableKategori').DataTable().ajax.reload()
-                    $('#name').val(null)
-                    // $('#telp').val(null)
-                    // $('#alamat').val(null)
-                    $('#save').text('Save')
-                },
-                error : function (xhr) {
-                    alert(xhr.responJson.text)
-                }
-            }) 
+  $.ajax({
+    url : "{{ url('admin/kategori/update')}}",
+    type : "post",
+    data : {
+    id : $('#id').val(),
+    name : $('#name').val(),
+    _token: "{{csrf_token()}}"
+    },
+    success : function (res) {
+      console.log(res);
+      alert(res.text)
+      $('#close').click()
+      $('#tableKategori').DataTable().ajax.reload()
+      $('#name').val(null)
+      // $('#telp').val(null)
+      // $('#alamat').val(null)
+      $('#save').text('Save')
+        },
+        error : function (xhr) {
+            alert(xhr.responJson.text)
+        }
+    }) 
     }
     $(document).on('click','.hapus', function () {
         let id = $(this).attr('id')

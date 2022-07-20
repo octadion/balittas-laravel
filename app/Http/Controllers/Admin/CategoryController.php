@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -19,8 +21,8 @@ class CategoryController extends Controller
         if(request()->ajax()){
             return datatables()->of($category)
             ->addColumn('aksi', function($category){
-                $button ="<button class='edit btn btn-danger' id='".$category->id."'>Edit</button>";
-                $button  .="<button class='hapus btn btn-danger' id='".$category->id."'>Hapus</button>";
+                $button ="<center><button class='edit btn btn-primary' id='".$category->id."'>Edit</button> ";
+                $button  .="<button class='hapus btn btn-danger' id='".$category->id."'>Hapus</button></center>";
                 return $button;
             })
             ->rawColumns(['aksi'])

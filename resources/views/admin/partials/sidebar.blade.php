@@ -19,9 +19,9 @@
             <a href="#" class="nav-link"><i class="fas fa-th-large"></i> <span>Produk</span></a>
           </li>
           <li class="menu-header">Manajemen Web</li>
-          <li class="nav-item {{ (request()->is('admin/berita')) ? 'active' : '' }}">
-            <a href="#" class="nav-link">
-              <i class="fas fa-file-alt"></i> <span>Berita</span></a>
+          <li class="nav-item {{ (request()->is('admin/post')) ? 'active' : '' }}">
+            <a href="{{ url('admin/post') }}" class="nav-link">
+              <i class="fas fa-file-alt"></i> <span>Post</span></a>
           </li>
           <li class="nav-item {{ (request()->is('admin/kategori')) ? 'active' : '' }}">
             <a href="{{ url('admin/kategori') }}" class="nav-link">
