@@ -26,39 +26,52 @@
             <img src="{{ asset('assets/images/logo_balitas.png') }}" alt="logo" width="250" height="50" class="mb-5 mt-2">
             <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Balittas</span></h4>
             <p class="text-muted">Silakan untuk melakukan login sistem.</p>
-            <form method="POST" action="#" class="needs-validation" novalidate="">
+            <form method="POST" action="{{ route('login') }}">
+              @csrf
               <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
-                <div class="invalid-feedback">
-                  Please fill in your email
-                </div>
+                <label for="email">{{ __('Email Address') }}</label>
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
               </div>
 
               <div class="form-group">
                 <div class="d-block">
-                  <label for="password" class="control-label">Password</label>
+                  <label for="password" class="control-label">{{ __('Password') }}</label>
                 </div>
-                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                <div class="invalid-feedback">
-                  please fill in your password
-                </div>
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
               </div>
 
               <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                  <label class="custom-control-label" for="remember-me">Remember Me</label>
+                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                  <label class="form-check-label" for="remember">
+                      {{ __('Remember Me') }}
+                  </label>
                 </div>
               </div>
 
               <div class="form-group text-right">
-                <a href="auth-forgot-password.html" class="float-left mt-3">
+                {{-- <a href="auth-forgot-password.html" class="float-left mt-3">
                   Forgot Password?
-                </a>
-                <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
-                  Login
-                </button>
+                </a> --}}
+                <button type="submit" class="btn btn-primary">
+                  {{ __('Login') }}
+              </button>
+              @if (Route::has('password.request'))
+              <a class="btn btn-link" href="{{ route('password.request') }}">
+                  {{ __('Forgot Your Password?') }}
+              </a>
+          @endif
               </div>
 
               <div class="mt-5 text-center">

@@ -4,22 +4,22 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Post</h1>
+        <h1>Tentang</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item active"><a href="{{ url('admin/dashboard') }}">Admin</a></div>
-          <div class="breadcrumb-item"><a href="{{ url('admin/post') }}">Post</a></div>
+          <div class="breadcrumb-item"><a href="{{ url('admin/about') }}">Tentang</a></div>
           <div class="breadcrumb-item">Edit</div>
         </div>
       </div>
 
       <div class="section-body">
-        <h2 class="section-title">Update Post</h2>
+        <h2 class="section-title">Update Tentang</h2>
 
         <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Form Post</h4>
+                  <h4>Form Tentang</h4>
                 </div>
                 <div class="card-body">
                     <form id="form_data" enctype="multipart/form-data" method="post">
@@ -27,66 +27,18 @@
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label for="judul">Judul <small class="text-danger">*</small></label>
-                                    <input name="title" type="text" id="judul" class="form-control" value="{{ old('title') ? old('title') : $post->title }}">
+                                    <input name="title" type="text" id="judul" class="form-control" value="{{ old('title') ? old('title') : $about->title }}">
+                                    <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                                     <p><small id="error_judul" class="text-danger"></small></p>
                                 </fieldset>
                             </div>
-                            <div class="col-md-3">
-                                <fieldset class="form-group">
-                                    <label for="thumbnail">Thumbnail <small class="text-danger">*</small></label>
-                                    <input name="thumbnail" type="file" accept=".jpg,.png,.jpeg,.gif" id="thumbnail" class="form-control">
-                                    <p><small id="error_thumbnail" class="text-danger"></small></p>
-                                </fieldset>
-                            </div>
-                            <div class="col-md-3">
-                                <div style="position: absolute;">
-                                    <button title="hapus thumbnail" style="position: absolute;top:10px;right: 0;display: none;" id="remove_thumbnail" type="button" class="btn btn-icon rounded-circle btn-danger mr-1 mb-1"><i class="fa fa-trash"></i></button>
-                                    <img src="/upload/post/thumbnail/{{ $post->thumbnail }}" alt="pilih thumbnail" id="tmp_thumbnail" width="200">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <fieldset class="form-group">
-                                    <label for="tanggal">Tanggal <small class="text-danger">*</small></label>
-                                    <input name="date" type="text" id="tanggal" class="form-control pickadate" value="{{ $post->date }}">
-                                    <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
-                                    <p><small id="error_tanggal" class="text-danger"></small></p>
-                                </fieldset>
-                            </div>
                             <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <fieldset class="form-group">
-                                    <label for="tanggal">Kategori <small class="text-danger">*</small></label>
-                                    <select class="form-control" id="category" name="category">
-                                        @foreach ($category as $row)
-                                        @if ($row->id == $post->category_id)
-                                            <option value="{{$row->id}}">{{$row->name}}</option>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($category as $row)
-                                        @if ($row->id != $post->category_id)
-                                            <option value="{{$row->id}}">{{$row->name}}</option>
-                                        @endif
-                                    @endforeach
-                                    {{-- <p><small id="error_kategori" class="text-danger"></small></p> --}}
-                                </select>
-                                @error('category')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                                </fieldset>
-                            </div>
                             <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <fieldset class="form-group">
-                                    <label for="keterangan">Keterangan <small class="text-danger">*</small></label>
-                                    <textarea class="summernote-simple" name="description" style="resize: none;" class="form-control" id="keterangan" rows="2">{{ $post->description }}</textarea>
-                                    <p><small id="error_keterangan" class="text-danger"></small></p>
-                                </fieldset>
-                            </div>
                             <div class="col-md-6"></div>
                             <div class="col-md-12">
                                 <fieldset class="form-group">
                                     <label for="konten">Konten <small class="text-danger">*</small></label>
-                                    <textarea class="form-control" id="konten">{{ $post->content }}</textarea>
+                                    <textarea class="form-control" id="konten">{{ $about->content }}</textarea>
                                     <p><small id="error_konten" class="text-danger"></small></p>
                                 </fieldset>
                             </div>
@@ -156,11 +108,11 @@ $('#thumbnail').change(function(e) {
         var data = new FormData(this);
         console.log(konten);
         data.append('content', konten);
-        data.append('id', {{ $post->id }});
+        data.append('id', {{ $about->id }});
         console.log(Array.from(data));
         $.ajax({
             type: "POST",
-            url: '{{ url("admin/post/update/".$post->id) }}',
+            url: '{{ url("admin/about/update/".$about->id) }}',
             data: data,
             dataType: "JSON",
             processData: false,
@@ -184,9 +136,6 @@ $('#thumbnail').change(function(e) {
                     fadeOut: 1000
                 });
                 $('#error_judul').html('');
-                $('#error_tanggal').html('');
-                $('#error_thumbnail').html('');
-                $('#error_keterangan').html('');
                 $('#error_konten').html('');
             },
             success: function(response) {
@@ -201,9 +150,6 @@ $('#thumbnail').change(function(e) {
                         fadeOut: 2000
                     });
                     $('#error_judul').html('');
-                    $('#error_tanggal').html('');
-                    $('#error_thumbnail').html('');
-                    $('#error_keterangan').html('');
                     $('#error_konten').html('');
                 } else {
                     toastr.error('Mohon Periksa inputan', {
@@ -211,9 +157,6 @@ $('#thumbnail').change(function(e) {
                         fadeOut: 2000
                     });
                     $('#error_judul').html(response.msg.judul);
-                    $('#error_tanggal').html(response.msg.tanggal);
-                    $('#error_thumbnail').html(response.msg.thumbnail);
-                    $('#error_keterangan').html(response.msg.keterangan);
                     $('#error_konten').html(response.msg.konten);
                 }
             }

@@ -5,7 +5,7 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Category</h1>
+      <h1>Variety</h1>
     </div>
   </section>
   <div class="row">
@@ -19,17 +19,17 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-stripped" width="100%" id="tableKategori">
+            <table class="table table-stripped" width="100%" id="tableVariety">
               <thead>
                 <tr>
                   <th>No. </th>
-                  <th>Kategori</th>
+                  <th>Variety</th>
                   <th>Slug</th>
                   <th class="text-center" style="width: 20%;">Aksi</th>
                 </tr>
               </thead>
             </table>
-            <p class="small font-weight-bold">* Data kategori adalah data jenis dari post pada website Balittas</p>
+            <p class="small font-weight-bold">* Data variety adalah data jenis dari post pada website Balittas</p>
           </div>
         </div>
       </div>
@@ -40,14 +40,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="title">Tambah Kategori</h5>
+        <h5 class="modal-title" id="title">Tambah</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Nama Kategori</label>
+          <label>Nama Variety</label>
           <div class="input-group">
             <input type="text" class="form-control" name="name" id="name">
             {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
@@ -74,12 +74,12 @@
 });
 })
 function table() {
-  $('#tableKategori').DataTable({
+  $('#tableVariety').DataTable({
     serverside: true,
     responsive: true,
     destroy: true,
     ajax: {
-      url: "{{ route('kategori.index') }}"
+      url: "{{ route('variety.index') }}"
     },
     columns: [{
       "data":null,"sortable":false,
@@ -105,7 +105,7 @@ $('#save').on('click',function () {
 function store(){
   var name = $('#name').val();
   $.ajax({
-    url: '{{ url("admin/kategori/store") }}',
+    url: '{{ url("admin/variety/store") }}',
     data: {name:name, _token: '{{csrf_token()}}'},
     type: 'post',
     success:function(res){
@@ -116,7 +116,7 @@ function store(){
         fadeOut: 1000
       });
       $('#close').click();
-      $('#tableKategori').DataTable().ajax.reload();
+      $('#tableVariety').DataTable().ajax.reload();
       $('#name').val(null);
     },
     error:function(xhr){
@@ -130,9 +130,9 @@ $(document).on('click','.edit', function(){
   let id = $(this).attr('id');
   $('#btnadd').click();
   $('#save').text('Update');
-  $('#title').text('Update Kategori');
+  $('#title').text('Update Variety');
   $.ajax({
-    url: '{{ url("admin/kategori/showUpdate") }}',
+    url: '{{ url("admin/variety/showUpdate") }}',
     data: {id:id, _token: '{{csrf_token()}}'},
     type: 'post',
     success:function(res){
@@ -145,7 +145,7 @@ $(document).on('click','.edit', function(){
 });
 function update() {
   $.ajax({
-    url : "{{ url('admin/kategori/update')}}",
+    url : "{{ url('admin/variety/update')}}",
     type : "post",
     data : {
     id : $('#id').val(),
@@ -160,7 +160,7 @@ function update() {
         fadeOut: 1000
       });
       $('#close').click()
-      $('#tableKategori').DataTable().ajax.reload()
+      $('#tableVariety').DataTable().ajax.reload()
       $('#name').val(null)
       // $('#telp').val(null)
       // $('#alamat').val(null)
@@ -183,7 +183,7 @@ function update() {
         }).then((result) => {
             if (result.value) {
         $.ajax({
-            url : "{{ url('admin/kategori/delete')}}",
+            url : "{{ url('admin/variety/delete')}}",
             type : 'post',
             data: {
                 id: id,
@@ -195,7 +195,7 @@ function update() {
                 timeOut: 1000,
                 fadeOut: 1000
               });
-                $('#tableKategori').DataTable().ajax.reload()
+                $('#tableVariety').DataTable().ajax.reload()
             }
         });
       } else {

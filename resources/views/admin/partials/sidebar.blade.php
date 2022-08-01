@@ -12,33 +12,29 @@
             <a href="{{ url('admin/dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
           </li>
           <li class="menu-header">Data Master</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fas fa-th-large"></i> <span>Komoditas</span></a>
+          <li class="nav-item {{ (request()->is('admin/variety')) ? 'active' : '' }}">
+            <a href="{{ url('admin/variety') }}" class="nav-link"><i class="fas fa-th-large"></i> <span>Varietas</span></a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fas fa-th-large"></i> <span>Produk</span></a>
+            <a href="#" class="nav-link"><i class="fas fa-th-large"></i> <span>Data</span></a>
           </li>
-          <li class="menu-header">Manajemen Web</li>
-          <li class="nav-item {{ (request()->is('admin/post')) ? 'active' : '' }}">
-            <a href="{{ url('admin/post') }}" class="nav-link">
-              <i class="fas fa-file-alt"></i> <span>Post</span></a>
-          </li>
+          <li class="menu-header">Manajemen Publikasi</li>
           <li class="nav-item {{ (request()->is('admin/kategori')) ? 'active' : '' }}">
             <a href="{{ url('admin/kategori') }}" class="nav-link">
               <i class="fas fa-file-alt"></i> <span>Kategori</span></a>
           </li>
-          <li class="menu-header">Manajemen User</li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Akun</span></a>
+          <li class="nav-item {{ (request()->is('admin/post')) ? 'active' : '' }}">
+            <a href="{{ url('admin/post') }}" class="nav-link">
+              <i class="fas fa-file-alt"></i> <span>Post</span></a>
           </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i> <span>Errors</span></a>
-            <ul class="dropdown-menu">
-              <li><a class="nav-link" href="errors-503.html">503</a></li>
-              <li><a class="nav-link" href="errors-403.html">403</a></li>
-              <li><a class="nav-link" href="errors-404.html">404</a></li>
-              <li><a class="nav-link" href="errors-500.html">500</a></li>
-            </ul>
+          <li class="menu-header">Manajemen Web</li>
+          <li class="nav-item {{ (request()->is('admin/about')) ? 'active' : '' }}">
+            <a href="{{ url('admin/about') }}" class="nav-link">
+              <i class="fas fa-file-alt"></i> <span>Tentang</span></a>
+          </li>
+          <li class="menu-header">Manajemen User</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="far fa-user"></i> <span>Akun</span></a>
           </li>
           <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li>
         </ul>

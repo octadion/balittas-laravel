@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\VarietyController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Models\Role;
@@ -48,6 +50,15 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/admin/post/content_upload', [PostController::class,'content_upload'])->name('content_upload');
         Route::post('/admin/post/update/{id}', [PostController::class,'update'])->name('update');
         Route::post('/admin/post/delete/{id}', [PostController::class,'delete'])->name('delete');
+        Route::resource('/admin/about',AboutController::class);
+        Route::get('/admin/about/create', [AboutController::class,'create'])->name('create');
+        Route::post('/admin/about/store', [AboutController::class,'store'])->name('store');
+        Route::post('/admin/about/update/{id}', [AboutController::class,'update'])->name('update');
+        Route::resource('/admin/variety',VarietyController::class);
+        Route::post('/admin/variety/store', [VarietyController::class,'store'])->name('store');
+        Route::post('/admin/variety/update', [VarietyController::class,'update'])->name('update');
+        Route::post('/admin/variety/showUpdate', [VarietyController::class,'showUpdate'])->name('showUpdate');
+        Route::post('/admin/variety/delete', [VarietyController::class,'delete'])->name('delete');
     });
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');
