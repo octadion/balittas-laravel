@@ -4,22 +4,22 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Tentang</h1>
+        <h1>Data Varietas</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item active"><a href="{{ url('admin/dashboard') }}">Admin</a></div>
-          <div class="breadcrumb-item"><a href="{{ url('admin/about') }}">About</a></div>
-          <div class="breadcrumb-item">About</div>
+          <div class="breadcrumb-item"><a href="{{ url('admin/data_variety') }}">Data</a></div>
+          <div class="breadcrumb-item">Create</div>
         </div>
       </div>
 
       <div class="section-body">
-        <h2 class="section-title">Tambah Tentang</h2>
+        <h2 class="section-title">Tambah Data</h2>
 
         <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Form Tentang</h4>
+                  <h4>Form Data</h4>
                 </div>
                 <div class="card-body">
                     <form id="form_data" enctype="multipart/form-data" method="post">
@@ -27,12 +27,27 @@
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label for="judul">Judul <small class="text-danger">*</small></label>
-                                    <input name="title" type="text" id="judul" class="form-control" placeholder="Masukkan judul">
+                                    <input name="title" type="text" id="judul" class="form-control" placeholder="Masukkan judul berita">
                                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                                     <p><small id="error_judul" class="text-danger"></small></p>
                                 </fieldset>
                             </div>
-                            <div class="col-md-6"></div>
+                            {{-- <div class="col-md-6"></div> --}}
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="tanggal">Kategori <small class="text-danger">*</small></label>
+                                    <select class="form-control" id="variety" name="variety">
+                                    <option>Pilih Jenis</option>
+                                    @foreach ($variety as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endforeach
+                                    {{-- <p><small id="error_kategori" class="text-danger"></small></p> --}}
+                                </select>
+                                @error('variety')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                </fieldset>
+                            </div>
                             <div class="col-md-6"></div>
                             <div class="col-md-6"></div>
                             <div class="col-md-12">
@@ -67,7 +82,7 @@
     var img = "{{ asset('admin/assets/img/default.jpg') }}";
   $(document).ready(function() {
     CKEDITOR.replace('konten', {
-        filebrowserUploadUrl: "{{ route('about_content_upload', ['_token' => csrf_token() ]) }}",
+        filebrowserUploadUrl: "{{ route('data_content_upload', ['_token' => csrf_token() ]) }}",
         filebrowserUploadMethod: 'form'
     });
 });
@@ -111,7 +126,7 @@ $('#form_data').on('submit', function(e) {
     console.log(Array.from(data));
     $.ajax({
         type: "POST",
-        url: '{{ url("admin/about/store") }}',
+        url: '{{ url("admin/data_variety/store") }}',
         data: data,
         dataType: "JSON",
         processData: false,
@@ -141,6 +156,8 @@ $('#form_data').on('submit', function(e) {
             if (response.status == 'success') {
                 console.log(konten);
                 $('#form_data').trigger("reset");
+                // $('#remove_thumbnail').hide();
+                // $('#tmp_thumbnail').attr('src', img);
                 CKEDITOR.instances['konten'].setData('');
                 toastr.success(response.msg, {
                     timeOut: 2000,

@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Data extends Model
 {
     use HasFactory;
+    protected $table = 'data_variety';
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        // 'description',
+        'variety_id',
+        'user_id'
+    ];
+    public function variety(){
+        return $this->belongsTo(Variety::class, 'variety_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

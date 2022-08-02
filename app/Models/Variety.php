@@ -15,6 +15,6 @@ class Variety extends Model
     ];
     
     public function data(){
-        // return $this->hasMany(Post::class);
+        return $this->hasMany(Data::class);
     }
 }

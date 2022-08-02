@@ -15,8 +15,8 @@
           <li class="nav-item {{ (request()->is('admin/variety')) ? 'active' : '' }}">
             <a href="{{ url('admin/variety') }}" class="nav-link"><i class="fas fa-th-large"></i> <span>Varietas</span></a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fas fa-th-large"></i> <span>Data</span></a>
+          <li class="nav-item {{ (request()->is('admin/data_variety')) ? 'active' : '' }}">
+            <a href="{{ url('admin/data_variety') }}" class="nav-link"><i class="fas fa-th-large"></i> <span>Data</span></a>
           </li>
           <li class="menu-header">Manajemen Publikasi</li>
           <li class="nav-item {{ (request()->is('admin/kategori')) ? 'active' : '' }}">

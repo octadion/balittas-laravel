@@ -4,22 +4,22 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Tentang</h1>
+        <h1>Data Varietas</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item active"><a href="{{ url('admin/dashboard') }}">Admin</a></div>
-          <div class="breadcrumb-item"><a href="{{ url('admin/about') }}">Tentang</a></div>
+          <div class="breadcrumb-item"><a href="{{ url('admin/data_variety') }}">Data</a></div>
           <div class="breadcrumb-item">Edit</div>
         </div>
       </div>
 
       <div class="section-body">
-        <h2 class="section-title">Update Tentang</h2>
+        <h2 class="section-title">Update Data</h2>
 
         <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Form Tentang</h4>
+                  <h4>Form Data</h4>
                 </div>
                 <div class="card-body">
                     <form id="form_data" enctype="multipart/form-data" method="post">
@@ -27,18 +27,39 @@
                             <div class="col-md-6">
                                 <fieldset class="form-group">
                                     <label for="judul">Judul <small class="text-danger">*</small></label>
-                                    <input name="title" type="text" id="judul" class="form-control" value="{{ old('title') ? old('title') : $about->title }}">
+                                    <input name="title" type="text" id="judul" class="form-control" value="{{ old('title') ? old('title') : $data->title }}">
                                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                                     <p><small id="error_judul" class="text-danger"></small></p>
                                 </fieldset>
                             </div>
-                            <div class="col-md-6"></div>
+             
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="tanggal">Varietas <small class="text-danger">*</small></label>
+                                    <select class="form-control" id="variety" name="variety">
+                                        @foreach ($variety as $row)
+                                        @if ($row->id == $data->variety_id)
+                                            <option value="{{$row->id}}">{{$row->name}}</option>
+                                        @endif
+                                    @endforeach
+                                    @foreach ($variety as $row)
+                                        @if ($row->id != $data->category_id)
+                                            <option value="{{$row->id}}">{{$row->name}}</option>
+                                        @endif
+                                    @endforeach
+                                    {{-- <p><small id="error_kategori" class="text-danger"></small></p> --}}
+                                </select>
+                                @error('category')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                </fieldset>
+                            </div>
                             <div class="col-md-6"></div>
                             <div class="col-md-6"></div>
                             <div class="col-md-12">
                                 <fieldset class="form-group">
                                     <label for="konten">Konten <small class="text-danger">*</small></label>
-                                    <textarea class="form-control" id="konten">{{ $about->content }}</textarea>
+                                    <textarea class="form-control" id="konten">{{ $data->content }}</textarea>
                                     <p><small id="error_konten" class="text-danger"></small></p>
                                 </fieldset>
                             </div>
@@ -67,7 +88,7 @@
     var img = "{{ asset('admin/assets/img/default.jpg') }}";
   $(document).ready(function() {
     CKEDITOR.replace('konten', {
-        filebrowserUploadUrl: "{{ route('about_content_upload', ['_token' => csrf_token() ]) }}",
+        filebrowserUploadUrl: "{{ route('data_content_upload', ['_token' => csrf_token() ]) }}",
         filebrowserUploadMethod: 'form'
     });
 });
@@ -108,11 +129,11 @@ $('#thumbnail').change(function(e) {
         var data = new FormData(this);
         console.log(konten);
         data.append('content', konten);
-        data.append('id', {{ $about->id }});
+        data.append('id', {{ $data->id }});
         console.log(Array.from(data));
         $.ajax({
             type: "POST",
-            url: '{{ url("admin/about/update/".$about->id) }}',
+            url: '{{ url("admin/data_variety/update/".$data->id) }}',
             data: data,
             dataType: "JSON",
             processData: false,
@@ -142,8 +163,6 @@ $('#thumbnail').change(function(e) {
                 if (response.status == 'success') {
                     console.log(konten);
                     $('#form_data').trigger("reset");
-                    $('#remove_thumbnail').hide();
-                    $('#tmp_thumbnail').attr('src', img);
                     CKEDITOR.instances['konten'].setData('');
                     toastr.success(response.msg, {
                         timeOut: 2000,
