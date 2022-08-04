@@ -45,4 +45,14 @@ class HomeController extends Controller
 	{
 		return $this->loadTheme('services.tentang.sejarah', $this->data);
 	}
+    public function listnews()
+	{
+		return $this->loadTheme('services.tentang.listnews', $this->data);
+
+	}
+	public function berita()
+	{
+		return $this->loadTheme('services.tentang.berita', $this->data);
+		
+	}
 }

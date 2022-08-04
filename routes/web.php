@@ -27,8 +27,12 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
+Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
+Route::get('/berita',[HomeController::class,'berita'])->name('berita');
 Route::prefix('tentang')->group( function(){
     Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
+    Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
+    Route::get('/berita',[HomeController::class,'berita'])->name('berita');
 });
 
 // Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('index');
@@ -73,5 +77,3 @@ Route::group(['middleware' => 'auth'], function(){
 
     });
 });
-
-

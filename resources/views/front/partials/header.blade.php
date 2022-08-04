@@ -38,13 +38,17 @@
     </div>
 
     <header class="">
+     
       <nav class="navbar navbar-expand-lg">
+       
         <div class="container">
+           
           <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/images/logo_balitas.png') }}" alt="logo" class="logo-dark default navlogo-cust"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
+           
             <ul class="navbar-nav ml-auto">
               <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/') }}">Home
@@ -55,6 +59,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tentang</a>
                 <div class="dropdown-menu rounded-0 m-0">
                     <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Sejarah</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Berita</a>
                     <a href="single.html" class="dropdown-item">Organisasi</a>
                     <a href="single.html" class="dropdown-item">Visi & Misi</a>
                     <a href="single.html" class="dropdown-item">Organisasi</a>
@@ -79,8 +84,20 @@
               <li class="nav-item">
                 <a class="nav-link" href="one-page.html">Kontak</a>
               </li>
+                 
+<!--
+              <div class="search2">
+                <input type="text" class="input" placeholder="Search..."> 
+                <a class="btn2"> <i class="fas fa-search"></i>  </a>
+              </div>
+
+-->
+
             </ul>
           </div>
+          </div>
+
         </div>
       </nav>
+
     </header>

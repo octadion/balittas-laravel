@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-finance-business.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
+    <link href="assets/template/css/style.css" rel="stylesheet">
+    <link href="assets/template/images/img/favicon.ico" rel="icon">
+        <link rel="stylesheet" href="../assets2/css/style.css">
+
   </head>
   <body>
   
@@ -31,12 +35,21 @@
   
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+ <script src="https://kit.fontawesome.com/5c2debf290.js" crossorigin="anonymous"></script>
   <!-- Additional Scripts -->
   <script src="{{ asset('assets/js/custom.js') }}"></script>
   <script src="{{ asset('assets/js/owl.js') }}"></script>
   <script src="{{ asset('assets/js/slick.js') }}"></script>
   <script src="{{ asset('assets/js/accordions.js') }}"></script>
+  <script language = "text/Javascript"> /*
+ const search2 = document.querySelector('.search2')  
+ const btn2 = document.querySelector('.btn2')  
+ const input = document.querySelector('.input')  
+ btn2.addEventListener('click', () => {  
+   search2.classList.toggle('active')    input.focus()  
+ })  */
+ </script>
+
 
   <script language = "text/Javascript"> 
     cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
