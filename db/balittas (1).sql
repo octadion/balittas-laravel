@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2022 at 04:01 AM
+-- Generation Time: Aug 08, 2022 at 03:56 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.4.9
 
@@ -80,12 +80,20 @@ INSERT INTO `category` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `data_variety` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `variety_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `data_variety`
+--
+
+INSERT INTO `data_variety` (`id`, `variety_id`, `user_id`, `title`, `content`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Tebu', '<p>Pemanissss</p>', 'tebu', '2022-08-03 21:05:21', '2022-08-03 21:05:21');
 
 -- --------------------------------------------------------
 
@@ -136,7 +144,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2022_07_28_042138_create_data_variety_table', 9),
 (15, '2022_07_29_025844_add_variety_id_to_data_variety_table', 10),
 (16, '2022_07_29_030502_create_data_variety_table', 11),
-(17, '2022_07_29_030537_add_variety_id_to_data_variety_table', 12);
+(17, '2022_07_29_030537_add_variety_id_to_data_variety_table', 12),
+(18, '2022_08_01_053801_add_user_id_to_data_variety_table', 13),
+(19, '2022_08_08_014131_add_first_name_last_name_desc_to_users_table', 14);
 
 -- --------------------------------------------------------
 
@@ -237,9 +247,13 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `two_factor_secret` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `two_factor_recovery_codes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `two_factor_confirmed_at` timestamp NULL DEFAULT NULL,
@@ -255,8 +269,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`, `role_id`) VALUES
-(1, 'admin', 'admin@app.com', NULL, '$2y$10$aR7V9VMXDK3SiiKEYDb8q.dWHaR1iXbxle0u3r/HO0tSaPob6Hpxm', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-25 19:01:30', '2022-07-25 19:01:30', 1);
+INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `phone`, `desc`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`, `role_id`) VALUES
+(1, 'admin', 'Adminn', 'Magang', 'admin@app.com', NULL, '$2y$10$aR7V9VMXDK3SiiKEYDb8q.dWHaR1iXbxle0u3r/HO0tSaPob6Hpxm', '0808886', '<p>dsada</p>', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-25 19:01:30', '2022-08-07 19:19:47', 1),
+(10, 'pgwe', '', '', 'pgwe@mail.com', NULL, '$2y$10$oA01kzUn6qyMuVSTVhTta.bZhevISR5gKSlOzAa7wQBfCTymSwerW', '', '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-03 21:46:23', '2022-08-03 21:46:23', 3);
 
 -- --------------------------------------------------------
 
@@ -376,7 +391,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `data_variety`
 --
 ALTER TABLE `data_variety`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -388,7 +403,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `post`
@@ -406,23 +421,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `variety`
 --
 ALTER TABLE `variety`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

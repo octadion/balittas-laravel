@@ -33,8 +33,11 @@
               <i class="fas fa-file-alt"></i> <span>Tentang</span></a>
           </li>
           <li class="menu-header">Manajemen User</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><i class="far fa-user"></i> <span>Akun</span></a>
+          <li class="nav-item {{ (request()->is('admin/user')) ? 'active' : '' }}">
+            <a href="{{ url('admin/user') }}" class="nav-link"><i class="far fa-user"></i> <span>Akun</span></a>
+          </li>
+          <li class="nav-item {{ (request()->is('admin/profile')) ? 'active' : '' }}">
+            <a href="{{ url('admin/profile', [Auth::user()->id]) }}" class="nav-link"><i class="far fa-user"></i> <span>Profil</span></a>
           </li>
           <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li>
         </ul>

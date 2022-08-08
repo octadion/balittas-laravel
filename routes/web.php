@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\DataController;
+use App\Http\Controllers\Admin\UserController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +70,12 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/admin/data_variety/create', [DataController::class,'create'])->name('create');
         Route::post('/admin/data_variety/store', [DataController::class,'store'])->name('store');
         Route::post('/admin/data_variety/data_content_upload', [DataController::class,'data_content_upload'])->name('data_content_upload');
+        Route::resource('/admin/user',UserController::class);
+        Route::post('/admin/user/store', [UserController::class,'store'])->name('store');
+        Route::get('/admin/profile/{id}', [UserController::class,'profile'])->name('profile');
+        Route::post('/admin/user/delete', [UserController::class,'delete'])->name('delete');
+        Route::post('/admin/user/update/{id}', [UserController::class,'update'])->name('update');
+        Route::post('/admin/user/showDetail', [UserController::class,'showDetail'])->name('showDetail');
     });
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');
