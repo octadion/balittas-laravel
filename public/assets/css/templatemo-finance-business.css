@@ -6,6 +6,118 @@ https://templatemo.com/tm-545-finance-business
 
 */
 /*******************LOADER****************/
+
+
+* {
+
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search > h3 {
+  font-weight: normal;
+}
+
+.search > h1,
+.search > h3 {
+  color: white;
+  margin-bottom: 15px;
+
+}
+
+.search > div {
+  display: inline-block;
+  position: relative;
+
+}
+
+
+
+
+.search > div:after {
+  content: "";
+  background: white;
+  width: 4px;
+  height: 8px;
+  position: absolute;
+  top: 33px;
+  right: 2px;
+  transform: rotate(145deg);
+}
+
+
+
+
+
+.search > div > input {
+	  width: 15px;
+  height: 15px;
+  color: white;
+  font-size: 10px;
+  background: transparent;
+
+  padding: 8px;
+  border: solid 3px white;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.search > div > input::placeholder {
+  color: #efefef;
+  opacity: 0;
+  transition: opacity 50ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.search > div > input:focus,
+.search > div > input:not(:placeholder-shown) {
+  width: 250px;
+}
+
+
+
+
+.open-button {
+	background-image: url(../images/chat.gif);
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+
+  z-index: 2;
+
+}
+.buttonchat{
+  z-index: 2;
+    cursor: pointer;
+  opacity: 1;
+    bottom: 23px;
+  right: 28px;
+  position: fixed;
+  height: 100px;
+}
 .loader1{
     overflow: hidden !important;
 }
@@ -377,7 +489,7 @@ header .navbar {
 }
 .navbar .navbar-nav a.nav-link {
 	text-transform: capitalize;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: 300;
 	letter-spacing: 0.5px;
 	color: #fff;
@@ -637,7 +749,7 @@ ul.slick-dots {
 
 
 	background-color: #fff;	
-	padding: 30px;
+	padding: 10px;
 	border-radius: 5px;
 	border-radius: 5px;
 	text-align: center;
@@ -1647,4 +1759,9 @@ z-index: 3;
  .search2.active .btn2 {  
   transform: translateX(198px);  
 z-index: 3;
- }  */
+ }  
+ 
+
+
+*/
+

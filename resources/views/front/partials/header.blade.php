@@ -1,3 +1,4 @@
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- ***** Preloader Start ***** -->
     {{-- <div id="preloader">
         <div class="jumper">
@@ -10,6 +11,7 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
+    <a href="https://wa.me/6285334638792"><img src="assets//images/wa3.gif" class="buttonchat"></a>
     <div class="sub-header">
       <div class="container">
         <div class="row">
@@ -17,10 +19,21 @@
             <ul class="left-info">
               <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
               <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-            </ul>
+<li>
+  <div class="search">
+   
+    <div>
+      <input type="text" placeholder="Search . . ." required>
+    </div>
+  </div></li>
+  </ul>
           </div>
           <div class="col-md-4">
             <ul class="right-icons">
+              <li>
+
+
+
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i></a></li>
@@ -31,6 +44,8 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
+
+
             </ul>
           </div>
         </div>
@@ -84,8 +99,27 @@
               <li class="nav-item">
                 <a class="nav-link" href="one-page.html">Kontak</a>
               </li>
-                 
-<!--
+     <!--       
+              <li class="nav-item">
+             
+                <div class="search">
+                <a class="nav-link" ><i class="fa-solid fa-magnifying-glass"></i>
+                  <div class="btn">
+                <input type="text" class="input" placeholder="Search..."></a>
+                  </div>
+                    </div>
+              </li>
+
+
+
+
+
+     <div class="search">  
+    <input type="text" class="input" placeholder="Search...">  
+    <button class="btn">  
+     <i class="fas fa-search"></i>  
+    </button>  
+   </div>  
               <div class="search2">
                 <input type="text" class="input" placeholder="Search..."> 
                 <a class="btn2"> <i class="fas fa-search"></i>  </a>

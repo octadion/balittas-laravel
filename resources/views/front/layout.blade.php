@@ -41,13 +41,7 @@
   <script src="{{ asset('assets/js/owl.js') }}"></script>
   <script src="{{ asset('assets/js/slick.js') }}"></script>
   <script src="{{ asset('assets/js/accordions.js') }}"></script>
-  <script language = "text/Javascript"> /*
- const search2 = document.querySelector('.search2')  
- const btn2 = document.querySelector('.btn2')  
- const input = document.querySelector('.input')  
- btn2.addEventListener('click', () => {  
-   search2.classList.toggle('active')    input.focus()  
- })  */
+  <script language = "text/Javascript"> 
  </script>
 
 
