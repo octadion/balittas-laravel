@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -28,7 +29,7 @@ class PostController extends Controller
                 $button = "<center><button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Aksi</button>";
                 $button  .= " <div class='dropdown-menu'>
                 <a class='edit dropdown-item has-icon' href='/admin/post/".$post->id."/edit' id='".$post->id."'><i class='far fa-edit'></i> Edit</a>
-                <a class='detail dropdown-item has-icon' href='/admin/post/".$post->id."/detail'><i class='far fa-eye'></i> Detail</a>
+                <a class='detail dropdown-item has-icon' href='/admin/post/".$post->id."/detail' id='".$post->id."'><i class='far fa-eye'></i> Detail</a>
               </div>";
                 $button  .="<button class='hapus btn btn-danger' id='".$post->id."'>Hapus</button></center>";
                 return $button;
@@ -44,6 +45,14 @@ class PostController extends Controller
         $category = Category::select('id', 'name')->get();
         $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id)->where('user_id', Auth::user()->id)->firstOrFail();
         return view('admin/post/edit', compact('post', 'category'));
+    }
+
+    public function detail($id)
+    {
+        $category = Category::select('id', 'name')->get();
+        $user = User::select('id','name')->get();
+        $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','user_id')->whereId($id)->where('user_id', Auth::user()->id)->firstOrFail();
+        return view('admin/post/detail', compact('post', 'category','user'));
     }
     /**
      * Show the form for creating a new resource.

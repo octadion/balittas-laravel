@@ -43,7 +43,7 @@ Route::prefix('tentang')->group( function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::group(['middleware' =>'role:admin'], function(){
+    Route::group(['middleware' =>'role:admin||pegawai'], function(){
         Route::get('/admin/dashboard', [DashboardController::class,'index'])->name('index');
         Route::resource('/admin/kategori',CategoryController::class);
         Route::post('/admin/kategori/store', [CategoryController::class,'store'])->name('store');
@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/admin/post/content_upload', [PostController::class,'content_upload'])->name('content_upload');
         Route::post('/admin/post/update/{id}', [PostController::class,'update'])->name('update');
         Route::post('/admin/post/delete/{id}', [PostController::class,'delete'])->name('delete');
+        Route::get('/admin/post/{id}/detail', [PostController::class,'detail'])->name('detai');
         Route::resource('/admin/about',AboutController::class);
         Route::get('/admin/about/create', [AboutController::class,'create'])->name('create');
         Route::post('/admin/about/store', [AboutController::class,'store'])->name('store');
