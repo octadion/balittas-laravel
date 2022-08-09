@@ -28,9 +28,9 @@
                   <div class="right-content">
                     <span>our solid background on finance</span>
                     <h2>Get to know about <em>our company</em></h2>
-
+                                       
                     <img src="assets/images/about-image.jpg" alt="">
-
+                    
                     <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. 
                     <br><br>Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.
 
@@ -42,20 +42,33 @@
                     <br><br>
                     Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
                 </p>
+                  <script type="text/javascript" src="https://freehitcounters.org/count/b6hw"></script><br>
+                  <a href='https://www.symptoma.es/'>Reload</a> <script type='text/javascript' src='https://whomania.com/ctr?id=8f201d9bf09a6f2f73fcfe1ceeb540424354d643'></script>
                   </div>
                 </div>
-        
-      
-              
-              
-
         </div>
+        <br>
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://balittas-1.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </div>
     </div>
-
-
-
-
                     </div>
                     <div class="col-lg-4">
                       <h2 class="mb-4  font-weight-600"style="color:#A4C639;">
@@ -193,8 +206,5 @@
             </div>
           </div>
         </div>
- 
-
-
     @include('front.partials.footer')
 @endsection
