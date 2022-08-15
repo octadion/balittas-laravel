@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\VarietyController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\PublicInfoController;
@@ -83,6 +84,11 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/admin/public_info/store', [PublicInfoController::class,'store'])->name('store');
         Route::post('/admin/public_info/update/{id}', [PublicInfoController::class,'update'])->name('update');
         Route::post('/admin/public_info/info_content_upload', [PublicInfoController::class,'info_content_upload'])->name('info_content_upload');
+        Route::resource('/admin/galeri',GaleriController::class);
+        Route::post('/admin/galeri/store', [GaleriController::class,'store'])->name('store');
+        Route::post('/admin/galeri/update', [GaleriController::class,'update'])->name('update');
+        Route::post('/admin/galeri/showUpdate', [GaleriController::class,'showUpdate'])->name('showUpdate');
+        Route::post('/admin/galeri/delete', [GaleriController::class,'delete'])->name('delete');
     });
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');

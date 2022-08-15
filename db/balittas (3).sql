@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2022 at 03:56 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Aug 15, 2022 at 05:57 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -114,6 +114,27 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `galeri`
+--
+
+CREATE TABLE `galeri` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `galeri`
+--
+
+INSERT INTO `galeri` (`id`, `title`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'sidebar', '1660535192-20210730_Penjelasan_Berakhlak.jpg', '2022-08-14 20:46:32', '2022-08-14 20:46:32');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -146,7 +167,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2022_07_29_030502_create_data_variety_table', 11),
 (17, '2022_07_29_030537_add_variety_id_to_data_variety_table', 12),
 (18, '2022_08_01_053801_add_user_id_to_data_variety_table', 13),
-(19, '2022_08_08_014131_add_first_name_last_name_desc_to_users_table', 14);
+(19, '2022_08_08_014131_add_first_name_last_name_desc_to_users_table', 14),
+(20, '2022_08_15_012935_create_public_info_table', 15),
+(21, '2022_08_15_022301_create_galeri_table', 16),
+(22, '2022_08_15_022520_create_galeri_table', 17);
 
 -- --------------------------------------------------------
 
@@ -189,6 +213,28 @@ INSERT INTO `post` (`id`, `category_id`, `user_id`, `title`, `thumbnail`, `date`
 (7, 9, 1, 'Tes updt 2', '1658299066-VBG_Peserta.png', '2022-07-20', 'tes-updt-2', '<p>sfaaa&nbsp;updt 2</p>', '<p>fsaaad&nbsp;updt 2</p>', '2022-07-19 19:21:22', '2022-07-19 23:37:46'),
 (8, 3, 1, 'ahoyyy tes updt', '1658806652-2169093223010c16908cdc5e6102b65a.jpg', '2022-07-25', 'ahoyyy-tes-updt', '<p><span style=\"font-size:22px;\"><strong>Tes Berita Hoax Updt</strong></span></p>\r\n\r\n<p><img alt=\"\" src=\"http://127.0.0.1:8000/upload/post/content/original_1658806335.png\" style=\"width: 200px; height: 113px;\" /></p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venen</p>\r\n\r\n<ul>\r\n	<li>pembawa kayu bakar</li>\r\n	<li>berita hoax bgt</li>\r\n	<li>zzzz</li>\r\n	<li>dadad</li>\r\n</ul>\r\n\r\n<p>sfsafasfafafas&nbsp;</p>', '<p>chips ahoy updt</p>', '2022-07-25 20:37:32', '2022-07-25 21:04:25'),
 (9, 6, 1, 'Tes', '1659323267-stukturorg2021a.png', '2022-08-01', 'tes', '<p><img alt=\"\" src=\"http://127.0.0.1:8000/upload/post/content/stukturorg2021a_1659323246.png\" style=\"width: 300px; height: 140px;\" /></p>\r\n\r\n<p>cdfdsfsdcs</p>', '<p>dffffsdfs</p>', '2022-07-31 20:07:47', '2022-07-31 20:07:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `public_info`
+--
+
+CREATE TABLE `public_info` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `public_info`
+--
+
+INSERT INTO `public_info` (`id`, `title`, `content`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Core Values ASN BerAkhlak', '<h1>Core Values ASN BerAkhlak</h1>\r\n\r\n<h2 itemprop=\"name\">Core Values ASN BerAkhlak</h2>\r\n\r\n<p><img alt=\"\" src=\"http://127.0.0.1:8000/upload/public_info/content/20210730_Penjelasan_Berakhlak_1660529098.jpg\" style=\"width: 300px; height: 300px;\" /></p>\r\n\r\n<p>BerAKHLAK merupakan akronim dari Berorientasi Pelayanan, Akuntabel, Kompeten, Harmonis, Loyal, Adaptif, dan Kolaboratif. Adanya&nbsp;<em>Core Values</em>&nbsp;ASN ini sebagai sari dari nilai-nilai dasar ASN sesuai dengan Undang-Undang No. 5 Tahun 2014 tentang Aparatur Sipil Negara dalam satu kesamaan persepsi yang lebih mudah dipahami dan diterapkan oleh seluruh ASN. Sedangkan #banggamelayanibangsa merupakan&nbsp;<em>Employer Branding&nbsp;</em>ASN jaman&nbsp;<em>now&nbsp;</em>yang melayani sepenuh hati.</p>\r\n\r\n<p><em>Core Values&nbsp;</em>ASN menjadi titik tonggak penguatan budaya kerja, yang tidak hanya dilakukan pada ASN tingkat pusat namun juga pada tingkat daerah, sebagaimana pesan Presiden Joko Widodo &ldquo;ASN yang bertugas sebagai pegawai pusat maupun pegawai daerah harus mempunyai&nbsp;<em>core values</em>&nbsp;yang sama.&rdquo;</p>\r\n\r\n<p><strong>Panduan</strong>&nbsp;<strong>Perilaku</strong>&nbsp;<em>Core Values&nbsp;</em>ASN BerAKHLAK sebagai berikut:</p>\r\n\r\n<p>Berorientasi Pelayanan</p>\r\n\r\n<ul>\r\n	<li>Memahami dan memenuhi kebutuhan masyarakat.</li>\r\n	<li>Ramah, cekatan, solutif, dan dapat diandalkan.</li>\r\n	<li>Melakukan perbaikan tiada henti.</li>\r\n</ul>\r\n\r\n<p>Akuntabel</p>\r\n\r\n<ul>\r\n	<li>Melaksanakan tugas dengan jujur, bertanggung jawab, cermat, serta disiplin dan berintegritas tinggi.</li>\r\n	<li>Menggunakan kekayaan dan barang milik negara secara bertanggung jawab, efektif dan efisien.</li>\r\n	<li>Tidak menyalahgunakan kewenangan jabatan.</li>\r\n</ul>\r\n\r\n<p>Kompeten</p>\r\n\r\n<ul>\r\n	<li>Meningkatkan kompetensi diri untuk menjawab tantangan yang selalu berubah.</li>\r\n	<li>Membantu orang lain belajar.</li>\r\n	<li>Melaksanakan tugas dengan kualitas terbaik.</li>\r\n</ul>\r\n\r\n<p>Harmonis</p>\r\n\r\n<ul>\r\n	<li>Menghargai setiap orang apapun latar belakangnya.</li>\r\n	<li>Suka menolong orang lain.</li>\r\n	<li>Membangun lingkungan kerja yang kondusif.</li>\r\n</ul>\r\n\r\n<p>Loyal</p>\r\n\r\n<ul>\r\n	<li>Memegang teguh ideologi Pancasila dan Undang-Undang Dasar Negara Republik Indonesia Tahun 1945.</li>\r\n	<li>Setia kepada NKRI serta pemerintahan yang sah.</li>\r\n	<li>Menjaga nama baik sesama ASN, pimpinan, instansi dan negara, serta menjaga rahasia jabatan dan negara.</li>\r\n</ul>\r\n\r\n<p>Adaptif</p>\r\n\r\n<ul>\r\n	<li>Cepat menyesuaikan diri menghadapi perubahan.</li>\r\n	<li>Terus berinovasi dan mengembangkan kreativitas.</li>\r\n	<li>Bertindak proaktif.</li>\r\n</ul>\r\n\r\n<p>Kolaboratif</p>\r\n\r\n<ul>\r\n	<li>Memberi kesempatan kepada berbagai pihak untuk berkontribusi.</li>\r\n	<li>Terbuka dalam bekerja sama untuk menghasilkan nilai tambah.</li>\r\n	<li>Menggerakkan pemanfaatan berbagai sumber daya untuk tujuan bersama.</li>\r\n</ul>\r\n\r\n<p>ASN harus mempunyai orientasi untuk memberikan pelayanan terbaik kepada masyarakat.</p>', 'core-values-asn-berakhlak', '2022-08-14 19:05:29', '2022-08-14 19:05:29');
 
 -- --------------------------------------------------------
 
@@ -326,6 +372,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `galeri`
+--
+ALTER TABLE `galeri`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -341,6 +393,12 @@ ALTER TABLE `password_resets`
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `public_info`
+--
+ALTER TABLE `public_info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -400,16 +458,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `galeri`
+--
+ALTER TABLE `galeri`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `public_info`
+--
+ALTER TABLE `public_info`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
