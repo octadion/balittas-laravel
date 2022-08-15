@@ -3,36 +3,34 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\About;
+use App\Models\PublicInfo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class AboutController extends Controller
+class PublicInfoController extends Controller
 {
     public function index()
     {
-        $about = About::get();
+        $public_info = PublicInfo::get();
         if(request()->ajax()){
-            return datatables()->of($about)
-            ->addColumn('aksi', function($about){
-                $button ="<center><a href='/admin/about/".$about->id."/edit'><button class='edit btn btn-primary' id='".$about->id."'>Edit</button></a> ";
-                
-                $button  .="<button class='hapus btn btn-danger' id='".$about->id."'>Hapus</button></center>";
+            return datatables()->of($public_info)
+            ->addColumn('aksi', function($public_info){
+                $button ="<center><a href='/admin/public_info/".$public_info->id."/edit'><button class='edit btn btn-primary' id='".$public_info->id."'>Edit</button></a> ";
+                $button  .="<button class='hapus btn btn-danger' id='".$public_info->id."'>Hapus</button></center>";
                 return $button;
             })
             ->rawColumns(['aksi'])
             ->make(true);
         }
-        return view('admin.about.index', compact('about'));
+        return view('admin.public_info.index', compact('public_info'));
     }
     public function create()
     {
-        return view('admin.about.create');
+        return view('admin.public_info.create');
     }
     public function store(Request $request)
     {
-        $save = About::create([
+        $save = PublicInfo::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
             'content' => $request->content,
@@ -44,7 +42,7 @@ class AboutController extends Controller
             return response()->json(['text' => 'Gagal diubah'], 422);
         }
     }
-    public function about_content_upload(Request $request)
+    public function info_content_upload(Request $request)
     {
         if($request->hasFile('upload')) {
         $originName = $request->file('upload')->getClientOriginalName();
@@ -52,10 +50,10 @@ class AboutController extends Controller
         $extension = $request->file('upload')->getClientOriginalExtension();
         $fileName = $fileName.'_'.time().'.'.$extension;
      
-        $request->file('upload')->move('upload/about/content',$fileName);
+        $request->file('upload')->move('upload/public_info/content',$fileName);
 
         $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-        $url = asset('upload/about/content/'.$fileName); 
+        $url = asset('upload/public_info/content/'.$fileName); 
         $msg = 'Image uploaded successfully'; 
         $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
             
@@ -64,8 +62,8 @@ class AboutController extends Controller
     }}
     public function edit($id)
     {
-        $about = About::select('id', 'title','content','slug')->whereId($id)->firstOrFail();
-        return view('admin/about/edit', compact('about'));
+        $public_info = PublicInfo::select('id', 'title','content','slug')->whereId($id)->firstOrFail();
+        return view('admin/public_info/edit', compact('public_info'));
     }
     public function update(Request $request, $id)
     {
@@ -75,9 +73,9 @@ class AboutController extends Controller
             'slug' => Str::slug($request->title, '-'),
             // 'user_id' => Auth::user()->id
         ];
-        $about = About::select('id')->whereId($id)->first();
-        $about->update($data);
-        if ($about) {
+        $public_info = PublicInfo::select('id')->whereId($id)->first();
+        $public_info->update($data);
+        if ($public_info) {
             return response()->json(['status' => 'success', 'msg' => 'berhasil disimpan'], 200);
         } else {
             return response()->json(['text' => 'Gagal diubah'], 422);
@@ -85,9 +83,9 @@ class AboutController extends Controller
     }
     public function delete($id)
     {
-        $about = About::select('id')->whereId($id)->firstOrFail();
-        $about->delete();
-        if ($about) {
+        $public_info = PublicInfo::select('id')->whereId($id)->firstOrFail();
+        $public_info->delete();
+        if ($public_info) {
             return response()->json(['status' => 'success', 'msg' => 'berhasil dihapus'], 200);
         } else {
             return response()->json(['text' => 'Gagal diubah'], 422);

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\VarietyController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\PublicInfoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\DataController;
@@ -77,6 +78,11 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/admin/user/delete', [UserController::class,'delete'])->name('delete');
         Route::post('/admin/user/update/{id}', [UserController::class,'update'])->name('update');
         Route::post('/admin/user/showDetail', [UserController::class,'showDetail'])->name('showDetail');
+        Route::resource('/admin/public_info',PublicInfoController::class);
+        Route::get('/admin/public_info/create', [PublicInfoController::class,'create'])->name('create');
+        Route::post('/admin/public_info/store', [PublicInfoController::class,'store'])->name('store');
+        Route::post('/admin/public_info/update/{id}', [PublicInfoController::class,'update'])->name('update');
+        Route::post('/admin/public_info/info_content_upload', [PublicInfoController::class,'info_content_upload'])->name('info_content_upload');
     });
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');

@@ -39,8 +39,21 @@
           <li class="menu-header">Manajemen Web</li>
           <li class="nav-item {{ (request()->is('admin/about')) || (request()->is('admin/about/*')) ? 'active' : '' }}">
             <a href="{{ url('admin/about') }}" class="nav-link">
-              <i class="fas fa-file-alt"></i> <span>Tentang</span></a>
+              <i class="fas fa-folder"></i> <span>Tentang</span></a>
           </li>
+          <li class="nav-item {{ (request()->is('admin/public_info')) || (request()->is('admin/public_info/*')) ? 'active' : '' }}">
+            <a href="{{ url('admin/public_info') }}" class="nav-link">
+              <i class="fas fa-info-circle"></i> <span>Informasi Publik</span></a>
+          </li>
+          <li class="dropdown {{ (request()->is('admin/galeri')) || (request()->is('admin/info')) || (request()->is('admin/banner/*'))  ?  'active' : '' }}">
+            <a href="#" class="nav-link has-dropdown"><i class="fas fa-globe"></i><span>Web</span></a>
+            <ul class="dropdown-menu">
+            <li class="{{ (request()->is('admin/galeri')) ? 'active' : '' }}">
+              <a href="{{ url('admin/galeri') }}" class="nav-link">
+               <span>Galeri</span></a></li>
+              <li class="{{ (request()->is('admin/info')) || (request()->is('admin/info/*')) ? 'active' : '' }}"> <a href="{{ url('admin/info') }}" class="nav-link">
+                <span>Informasi</span></a></li>
+              </ul></li>
           <li class="menu-header">Manajemen User</li>
           <li class="nav-item {{ (request()->is('admin/user')) ? 'active' : '' }}">
             <a href="{{ url('admin/user') }}" class="nav-link"><i class="fas fa-users"></i> <span>Akun</span></a>
