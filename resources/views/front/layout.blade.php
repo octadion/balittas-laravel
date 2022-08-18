@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
     <link href="assets/template/css/style.css" rel="stylesheet">
     <link href="assets/template/images/img/favicon.ico" rel="icon">
-        <link rel="stylesheet" href="../assets2/css/style.css">
+        <link rel="stylesheet" href="{{asset('assets2/css/style.css')}}">
 
   </head>
   <body>
@@ -41,6 +41,7 @@
   <script src="{{ asset('assets/js/owl.js') }}"></script>
   <script src="{{ asset('assets/js/slick.js') }}"></script>
   <script src="{{ asset('assets/js/accordions.js') }}"></script>
+    <script src="{{ asset('assets/js/vue.js') }}"></script>
   <script language = "text/Javascript"> 
  </script>
 

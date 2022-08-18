@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class listnews extends Model
 {
     use HasFactory;
     protected $table = 'post';
@@ -31,8 +31,4 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-   // public function getRouteKeyName()
-   // {
-    //    return 'slug';
-    //}
 }
