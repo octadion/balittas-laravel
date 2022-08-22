@@ -48,11 +48,35 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Nama</label>
+          <label>Username</label>
           <div class="input-group">
             <input type="text" class="form-control" name="name" id="name">
             {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
             <input type="hidden" class="form-control" name="id" id="id">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nama Depan</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="first_name" id="first_name">
+            {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
+            {{-- <input type="hidden" class="form-control" name="id" id="id"> --}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nama Belakang</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="last_name" id="last_name">
+            {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
+            {{-- <input type="hidden" class="form-control" name="id" id="id"> --}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label>No. Telp</label>
+          <div class="input-group">
+            <input type="number" class="form-control" name="phone" id="phone">
+            {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
+            {{-- <input type="hidden" class="form-control" name="id" id="id"> --}}
           </div>
         </div>
         <div class="form-group">
@@ -61,6 +85,14 @@
               <input type="text" class="form-control" name="email" id="email">
               {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
               <input type="hidden" class="form-control" name="role_id" id="role_id" value="3">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Deskripsi</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="desc" id="desc">
+              {{-- <input type="hidden" class="form-control" name="slug" id="slug"> --}}
+              {{-- <input type="hidden" class="form-control" name="role_id" id="role_id" value="3"> --}}
             </div>
           </div>
           <div class="form-group">
@@ -92,17 +124,29 @@
         <table class="table table-bordered no-margin">
             <tbody>
                 <tr>
-                    <th style="width: 35%">Name</th>
+                    <th style="width: 35%">Userame</th>
                     <td><span id="name2"></span></td>
                 </tr>
+                <tr>
+                  <th>Nama Depan</th>
+                  <td><span id="fname2"></span></td>
+              </tr>
+              <tr>
+                <th>Nama Belakang</th>
+                <td><span id="lname2"></span></td>
+            </tr>
                 <tr>
                     <th>Email</th>
                     <td><span id="email2"></span></td>
                 </tr>
                 <tr>
-                    <th>Phone</th>
-                    <td><span id="phone"></span></td>
+                    <th>No Telp</th>
+                    <td><span id="phone2"></span></td>
                 </tr>
+                {{-- <tr>
+                  <th>Deskripsi</th>
+                  <td><span id="desk"></span></td>
+              </tr> --}}
                 {{-- <tr>
                     <th>Desc</th>
                     <td><span id="desc"></span></td>
@@ -162,13 +206,17 @@ $('#save').on('click',function () {
 })
 function store(){
   var name = $('#name').val();
+  var first_name = $('#first_name').val();
+  var last_name = $('#last_name').val();
+  var phone = $('#phone').val();
   var email = $('#email').val();
+  var desc = $('#desc').val();
   var role_id = $('#role_id').val();
   console.log(role_id);
   var password = $('#password').val();
   $.ajax({
     url: '{{ url("admin/user/store") }}',
-    data: {name:name, email:email, role_id:role_id, password:password, _token: '{{csrf_token()}}'},
+    data: {name:name, first_name:first_name, last_name:last_name, desc:desc,phone:phone,email:email, role_id:role_id, password:password, _token: '{{csrf_token()}}'},
     type: 'post',
     success:function(res){
       console.log(res);
@@ -192,10 +240,15 @@ $(document).on('click','.detail', function(){
   var name = $(this).data('name');
   var phone = $(this).data('phone');
   var email = $(this).data('email');
-  var desc = $(this).data('desc');
+  // var desc = $(this).data('desc');
+  var fname = $(this).data('first_name');
+  var lname = $(this).data('last_name');
+  console.log(fname);
   $('#name2').text(name);
-  $('#phone').text(phone);
+  $('#phone2').text(phone);
   $('#email2').text(email);
+  $('#fname2').text(fname);
+  $('#lname2').text(lname);
   // $('#desc').text(htmldesc);
       
 });

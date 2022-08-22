@@ -55,9 +55,11 @@
                 <span>Informasi</span></a></li>
               </ul></li>
           <li class="menu-header">Manajemen User</li>
+          @if(in_array("admin", Auth::user()->roles->toArray()))
           <li class="nav-item {{ (request()->is('admin/user')) ? 'active' : '' }}">
             <a href="{{ url('admin/user') }}" class="nav-link"><i class="fas fa-users"></i> <span>Akun</span></a>
           </li>
+          @endif
           <li class="nav-item {{ (request()->is('admin/profile/*')) ? 'active' : '' }}">
             <a href="{{ url('admin/profile', [Auth::user()->id]) }}" class="nav-link"><i class="fas fa-user"></i> <span>Profil</span></a>
           </li>

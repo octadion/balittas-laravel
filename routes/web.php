@@ -102,7 +102,4 @@ Route::group(['middleware' => 'auth'], function(){
     Route::group(['middleware' =>'role:user'], function(){
         Route::get('/home',[HomeController::class,'index'])->name('home');
     });
-    Route::group(['middleware' =>'role:pegawai'], function(){
-
-    });
 });
