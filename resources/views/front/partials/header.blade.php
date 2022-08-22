@@ -11,7 +11,7 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    <a href="https://wa.me/6285334638792"><img src="assets//images/wa3.gif" class="buttonchat"></a>
+    <a href="https://wa.me/6285334638792"><img src="{{ asset('assets//images/wa3.gif') }}" class="buttonchat"></a>
     <div class="sub-header">
       <div class="container">
         <div class="row">
