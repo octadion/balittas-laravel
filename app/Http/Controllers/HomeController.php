@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Slide;
+use App\Models\Post;
 
 /**
  * HomeController
@@ -47,12 +48,20 @@ class HomeController extends Controller
 	}
     public function listnews()
 	{
-		return $this->loadTheme('services.tentang.listnews', $this->data);
-
-	}
-	public function berita()
-	{
-		return $this->loadTheme('services.tentang.berita', $this->data);
 		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.listnews', compact('post'));
+    
+	}
+	public function berita($id)
+	{
+		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
+		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id)->firstOrFail();
+		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
+        //return $post;
+		 return view('front.services.tentang.berita', compact('post','post2'));
 	}
 }

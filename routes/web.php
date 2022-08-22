@@ -32,11 +32,20 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
 Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
 Route::get('/berita',[HomeController::class,'berita'])->name('berita');
+ Route::resource('/home',HomeController::class);
 Route::prefix('tentang')->group( function(){
     Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
+    //Route::get('/listnews/index', [PostController::class,'index'])->name('index');
     Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
-    Route::get('/berita',[HomeController::class,'berita'])->name('berita');
+   // Route::resource('/home',HomeController::class);
+    Route::get('/berita/{id}',[HomeController::class,'berita'])->name('berita');
 });
+        Route::resource('/admin/post',PostController::class);
+        Route::get('/admin/post/create', [PostController::class,'create'])->name('create');
+        Route::post('/admin/post/store', [PostController::class,'store'])->name('store');
+        Route::post('/admin/post/content_upload', [PostController::class,'content_upload'])->name('content_upload');
+        Route::post('/admin/post/update/{id}', [PostController::class,'update'])->name('update');
+        Route::post('/admin/post/delete/{id}', [PostController::class,'delete'])->name('delete');
 
 // Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('index');
 // Route::get('/auth/login',[LoginController::class,'showLoginForm'])->name('showLoginForm');
