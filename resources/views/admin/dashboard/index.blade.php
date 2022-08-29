@@ -15,10 +15,10 @@
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Total Admin</h4>
+              <h4>Total Pegawai</h4>
             </div>
             <div class="card-body">
-              10
+              {{ $user }}
             </div>
           </div>
         </div>
@@ -30,10 +30,10 @@
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>News</h4>
+              <h4>Post</h4>
             </div>
             <div class="card-body">
-              42
+              {{ $post }}
             </div>
           </div>
         </div>
@@ -45,10 +45,10 @@
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Reports</h4>
+              <h4>Varietas</h4>
             </div>
             <div class="card-body">
-              1,201
+              {{ $data }}
             </div>
           </div>
         </div>
@@ -60,10 +60,10 @@
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Online Users</h4>
+              <h4>Informasi Publik</h4>
             </div>
             <div class="card-body">
-              47
+              {{ $info }}
             </div>
           </div>
         </div>

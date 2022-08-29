@@ -20,7 +20,7 @@
           <div class="col-12 col-md-12 col-lg-5">
             <div class="card profile-widget">
               <div class="profile-widget-header">
-                <img alt="image" src="{{ asset('admin/assets/img/avatar/avatar-1.png') }}" class="rounded-circle profile-widget-picture">
+                <img alt="image" src="{{ asset('upload/profile/photo/'.$user->profile_photo_path) }}" class="rounded-circle profile-widget-picture" width="250">
                 <div class="profile-widget-items">
                   <div class="profile-widget-item">
                     <div class="profile-widget-item-label">Posts</div>
@@ -90,6 +90,11 @@
                         <textarea class="form-control summernote-simple" name="desc">{{ old('desc') ? old('desc') : $user->desc }}</textarea>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label for="image">Foto Profile <small class="text-danger">*</small></label>
+                      <input name="image" type="file" accept=".jpg,.png,.jpeg,.gif" class="form-control image">
+                      <p><small class="text-danger error_image"></small></p>
+                  </div>
                   
                 </div>
                 <div class="card-footer text-right">

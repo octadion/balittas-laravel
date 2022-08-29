@@ -51,8 +51,8 @@
             <li class="{{ (request()->is('admin/galeri')) ? 'active' : '' }}">
               <a href="{{ url('admin/galeri') }}" class="nav-link">
                <span>Galeri</span></a></li>
-              <li class="{{ (request()->is('admin/info')) || (request()->is('admin/info/*')) ? 'active' : '' }}"> <a href="{{ url('admin/info') }}" class="nav-link">
-                <span>Informasi</span></a></li>
+              {{-- <li class="{{ (request()->is('admin/info')) || (request()->is('admin/info/*')) ? 'active' : '' }}"> <a href="{{ url('admin/info') }}" class="nav-link">
+                <span>Informasi</span></a></li> --}}
               </ul></li>
           <li class="menu-header">Manajemen User</li>
           @if(in_array("admin", Auth::user()->roles->toArray()))

@@ -68,19 +68,19 @@
                   {{ __('Login') }}
               </button>
               @if (Route::has('password.request'))
-              <a class="btn btn-link" href="{{ route('password.request') }}">
+              {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
                   {{ __('Forgot Your Password?') }}
-              </a>
+              </a> --}}
           @endif
               </div>
 
-              <div class="mt-5 text-center">
+              {{-- <div class="mt-5 text-center">
                 Don't have an account? <a href="auth-register.html">Create new one</a>
-              </div>
+              </div> --}}
             </form>
 
             <div class="text-center mt-5 text-small">
-              Copyright &copy; Your Company. Made with 💙 by Stisla
+              Copyright &copy; Balittas. Made with 💙 by Stisla
               <div class="mt-2">
                 <a href="#">Privacy Policy</a>
                 <div class="bullet"></div>
@@ -93,8 +93,8 @@
           <div class="absolute-bottom-left index-2">
             <div class="text-light p-5 pb-2">
               <div class="mb-5 pb-3">
-                <h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
-                <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+                <h1 class="mb-2 display-4 font-weight-bold">Selamat Datang</h1>
+                <h5 class="font-weight-normal text-muted-transparent">Malang, Indonesia</h5>
               </div>
               Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
             </div>

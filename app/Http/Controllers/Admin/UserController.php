@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\File;
 class UserController extends Controller
 {
     public function index()
@@ -62,7 +62,7 @@ class UserController extends Controller
     }
     public function profile($id){
         $role = Role::select('id', 'name')->get();
-        $user = User::select('id', 'name', 'email','role_id', 'first_name', 'last_name', 'desc', 'phone')->whereId($id)->where('id', Auth::user()->id)->firstOrFail();
+        $user = User::select('id', 'name', 'email','role_id', 'first_name', 'last_name', 'desc', 'phone','profile_photo_path')->whereId($id)->where('id', Auth::user()->id)->firstOrFail();
         $post = DB::table('post')->where('user_id', $id)->count();
         return view('admin.profile.index', compact('role','user','post'));
     }
@@ -80,7 +80,17 @@ class UserController extends Controller
             'last_name' => $request->last_name,
             'desc' => $request->desc,
             'phone' => $request->phone,
+            // 'profile_photo_path' => $request->image,
         ];
+        $post = User::select('profile_photo_path','id')->whereId($id)->first();
+        if ($request->image) {
+            File::delete('upload/profile/photo' .$post->image);
+
+            $image = time() . '-' . $request->image->getClientOriginalName();
+            $request->image->move('upload/profile/photo', $image);
+
+            $data['profile_photo_path'] = $image;
+        }
         $user = User::select('id')->whereId($id)->first();
         $user->update($data);
         if ($user) {
