@@ -6,14 +6,14 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="left-image">
-                    <img src="assets/images/dinkes.jpg" alt="">
+                    <img src="upload/data/content/andi2.jpg"style="width: 500px;height: 500px; justify-content: center;">
                   </div>
                 </div>
                 <div class="col-md-6 align-self-center">
                   <div class="right-content">
-                    <span>Quotes dari pimpinan</span>
-                    <h2>namae <em>kepala balittas</em></h2>
-                    <p>Curabitur pulvinar sem a leo tempus facilisis. Sed non sagittis neque. Nulla conse quat tellus nibh, id molestie felis sagittis ut. Nam ullamcorper tempus ipsum in cursus<br><br>Praes end at dictum metus. Morbi id hendrerit lectus, nec dapibus ex. Etiam ipsum quam, luctus eu egestas eget, tincidunt</p>
+                    <span>Pimpinan Kami</span>
+                    <h2><em>Dr.</em> Andy Wijanarko, <em>S.P., M.Si.</em></h2>
+                    <p>Balai Penelitian Tanaman Pemanis dan Serat (Balittas) merupakan salah satu unit pelaksana teknis (UPT) Badan Penelitian dan Pengembangan Pertanian, yang bertanggung jawab langsung kepada Pusat Penelitian dan Pengembangan Perkebunan di Bogor. Balittas berkedudukan di Karangploso, Malang, Jawa Timur, mempunyai kegiatan penelitian tanaman pemanis, serat, tembakau, dan minyak industri.</p>
                     <a href="#" class="filled-button">Read More</a>
                   </div>
                 </div>

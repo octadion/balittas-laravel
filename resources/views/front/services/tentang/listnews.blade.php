@@ -129,20 +129,22 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="trending">
                         <h2 class="mb-4 mt-4 font-weight-600"style="color:#A4C639;">
-                          Kunjungan di Balittas
+                          Informasi Publik
                         </h2>
                         <div class="mb-4">
                           <div class="rotate-img">
                             <img
-                              src="../assets2/images/magazine/Magzine_4.jpg"
+                              src="{{ asset('assets/images/beraklak.jpeg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
                           </div>
                           <h3 class="mt-3 font-weight-600">
-                            Virus Kills Member Of Advising Iran’s Supreme
+                            <a href="{{ url('/tentang/layanan/1') }}"> Core Values ASN BerAkhlak</a>
+                          
                           </h3>
                           <p class="fs-13 text-muted mb-0">
                             <span class="mr-2">Photo </span>10 Minutes ago
@@ -151,34 +153,21 @@
                         <div class="mb-4">
                           <div class="rotate-img">
                             <img
-                              src="../assets2/images/magazine/Magzine_5.jpg"
+                              src="{{ asset('assets/images/zona_integritas.jpg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
                           </div>
                           <h3 class="mt-3 font-weight-600">
-                            Virus Kills Member Of Advising Iran’s Supreme
+                            <a href="{{ url('/tentang/layanan/2') }}">Zona Integritas</a>
                           </h3>
                           <p class="fs-13 text-muted mb-0">
                             <span class="mr-2">Photo </span>10 Minutes ago
                           </p>
                         </div>
-                        <div class="mb-4">
-                          <div class="rotate-img">
-                            <img
-                              src="../assets2/images/magazine/Magzine_6.jpg"
-                              alt="banner"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <h3 class="mt-3 font-weight-600">
-                            Virus Kills Member Of Advising Iran’s Supreme
-                          </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
-                        </div>
+             
                       </div>
+
                     </div>
                   </div>
                 </div>

@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\Slide;
 use App\Models\Post;
+use App\Models\Public_info;
 
 /**
  * HomeController
@@ -39,8 +40,11 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
+		   $post   = Post::all();
 
-		return $this->loadTheme('home', $this->data);
+     	
+		
+		 return view('front.home', compact('post'));
 	}
     public function sejarah()
 	{
@@ -64,4 +68,14 @@ class HomeController extends Controller
         //return $post;
 		 return view('front.services.tentang.berita', compact('post','post2'));
 	}
+	public function layanan($id)
+	{
+		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
+		 $layanan = Public_info::select('id', 'title', 'content', 'slug','updated_at','created_at')->whereId($id)->firstOrFail();
+		  $layanan2 = Public_info::all('id', 'title', 'content', 'slug','updated_at','created_at');
+		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
+        //return $layanan;
+		 return view('front.services.tentang.layanan', compact('layanan','layanan2','post2'));
+	}
+
 }

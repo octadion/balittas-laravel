@@ -26,13 +26,9 @@
          
                 <div class="align-self-center">
                   <div class="right-content">
-                    <span>{{ $post->date }}</span>
-                    <h2>{{ $post->title }} </h2>
-
-                    <img src="/upload/post/thumbnail/{{ $post->thumbnail }}" alt=""width="500" height="300">
-                   
-                     {!! "$post->content" !!}
-                  
+                    <span>{{ $layanan->updated_at }}</span>
+                    <h2>{{ $layanan->title }} </h2>
+                     {!! "$layanan->content" !!}
                   </div>
                 </div>
         
@@ -119,6 +115,7 @@
                         </div>
              
                       </div>
+
                     </div>
                   </div>
                 </div>
