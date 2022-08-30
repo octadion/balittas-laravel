@@ -428,12 +428,14 @@ header {
 	z-index: 99999;
 	width: 100%;
 	background-color: transparent!important;
+
 	height: 80px;
 	-webkit-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
 }
+
 header .navbar {
 	padding: 20px 0px;
 }
@@ -492,7 +494,7 @@ header .navbar {
 	font-size: 13px;
 	font-weight: 300;
 	letter-spacing: 0.5px;
-	color: #fff;
+	color: #000000!important;
 	transition: all 0.5s;
 	margin-top: 5px;
 }
@@ -1431,6 +1433,33 @@ footer .contact-form button.filled-button:hover {
 	background-size: cover;
 	padding: 230px 0px 150px 0px;
 	color: #fff;
+}
+.page-heading2 {
+	text-align: center;
+	
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 0px 0px 0px 0px;
+	color: #fff;;
+
+
+
+}
+.page-heading2 h1 {
+	text-transform: capitalize;
+	font-size: 36px;
+	font-weight: 10;
+	letter-spacing: 2px;
+	margin-bottom: 18px;
+}
+
+.page-heading2 span {
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #fff;
+	display: block;
 }
 
 .page-heading h1 {

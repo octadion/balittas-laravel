@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
 Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
+Route::get('/layanan',[HomeController::class,'layanan'])->name('layanan');
 Route::get('/berita',[HomeController::class,'berita'])->name('berita');
  Route::resource('/home',HomeController::class);
 Route::prefix('tentang')->group( function(){
@@ -39,6 +40,11 @@ Route::prefix('tentang')->group( function(){
     Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
    // Route::resource('/home',HomeController::class);
     Route::get('/berita/{id}',[HomeController::class,'berita'])->name('berita');
+      Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');
+});
+Route::prefix('informasi')->group( function(){
+
+    Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');
 });
         Route::resource('/admin/post',PostController::class);
         Route::get('/admin/post/create', [PostController::class,'create'])->name('create');

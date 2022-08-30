@@ -81,24 +81,66 @@
                     <a href="single.html" class="dropdown-item">Sumber Daya Manusia</a>
                 </div>
             </div> 
-              <li class="nav-item">
-                <a class="nav-link" href="services.html">Publikasi</a>
-              </li>                          
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Komoditas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="one-page.html">Produk</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="one-page.html">Informasi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="one-page.html">Layanan</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="one-page.html">Kontak</a>
-              </li>
+              <div class="nav-item {{ (request()->is('tentang/sejarah*')) ? 'active' : '' }} dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Publikasi</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Buletin</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Prosiding</a>
+                    <a href="single.html" class="dropdown-item">Monograf/Buku</a>
+                    <a href="single.html" class="dropdown-item">Info Teknologi</a>
+                    <a href="single.html" class="dropdown-item">Leflet</a>
+                    <a href="single.html" class="dropdown-item">Jurnal Penelitian Tanaman Industri</a>
+                     <a href="single.html" class="dropdown-item">Lain-lain</a>
+                </div>
+            </div>                         
+              <div class="nav-item {{ (request()->is('tentang/sejarah*')) ? 'active' : '' }} dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Komoditas</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Pemanis</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Tembakau</a>
+                    <a href="single.html" class="dropdown-item">Serat Buah</a>
+                    <a href="single.html" class="dropdown-item">Serat Batang dan daun</a>
+                    <a href="single.html" class="dropdown-item">Tanaman Penghasil Serat Industri</a>
+            
+                </div>
+            </div> 
+                  <div class="nav-item {{ (request()->is('tentang/sejarah*')) ? 'active' : '' }} dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Produk</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Varietas Unggul</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Hak Kekayaan Intelektual</a>
+
+                </div>
+            </div> 
+              <div class="nav-item {{ (request()->is('tentang/sejarah*')) ? 'active' : '' }} dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Publikasi</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Penghargaan</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Zona Integritas</a>
+                    <a href="single.html" class="dropdown-item">Indeks Kepuasan Masyarakat</a>
+                    <a href="single.html" class="dropdown-item">Public Hearing</a>
+                    <a href="single.html" class="dropdown-item">Portal PPID Balittas</a>
+                    <a href="single.html" class="dropdown-item">Core Values ASN BerAkhlak</a>
+                 
+                </div>
+            </div> 
+              <div class="nav-item {{ (request()->is('tentang/sejarah*')) ? 'active' : '' }} dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Inovasi Layanan</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Penyediaan Benih Sumber</a>
+                    <a href="single.html" class="dropdown-item">Laboratorium Benih</a>
+                    <a href="single.html" class="dropdown-item">Perpustakaan</a>          
+                </div>
+            </div>
+              <div class="nav-item {{ (request()->is('tentang/sejarah*')) ? 'active' : '' }} dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Kontak</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{ url('tentang/sejarah') }}" class="dropdown-item">Layanan Pengaduan</a>
+                    <a href="{{ url('tentang/listnews') }}" class="dropdown-item">Kepuasan Pelanggan</a>
+                </div>
+            </div>
+
      <!--       
               <li class="nav-item">
              
