@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-sm-8 grid-margin">
                           <h4 class="font-weight-600 mb-2"style="color:#000000;">
-                            <a href="../tentang/berita/{{ $item->id }}">{{ $item->title }}</a>
+                            <a href="../tentang/berita/{{ $item->slug }}">{{ $item->title }}</a>
                           </h4>
                           <p class="fs-13 text-muted mb-0">
                             <span class="mr-2">Photo 10 Minutes ago </span>

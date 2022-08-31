@@ -39,7 +39,7 @@ Route::prefix('tentang')->group( function(){
     //Route::get('/listnews/index', [PostController::class,'index'])->name('index');
     Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
    // Route::resource('/home',HomeController::class);
-    Route::get('/berita/{id}',[HomeController::class,'berita'])->name('berita');
+    Route::get('/berita/{slug}',[HomeController::class,'berita'])->name('berita');
       Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');
 });
 Route::prefix('informasi')->group( function(){

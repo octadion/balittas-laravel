@@ -60,10 +60,10 @@ class HomeController extends Controller
      return view('front.services.tentang.listnews', compact('post'));
     
 	}
-	public function berita($id)
+	public function berita($slug)
 	{
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
-		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id)->firstOrFail();
+		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->where('slug', $slug)->firstOrFail();
 		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
         //return $post;
 		 return view('front.services.tentang.berita', compact('post','post2'));
