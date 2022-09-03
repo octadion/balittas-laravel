@@ -12,38 +12,36 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-12">
-                 
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-lg-8">
+                    <!-- isi konten -->
+                    <h2 class="font-weight-600 mb-4"style="color:#000000;">
+                        <center>
+                         MONOGRAF ATAU BUKU
+                        </center>
+                      </h2>
 
-                               
-       <div class="berita berita2">
-      <div class="container">
+                      <h3 align=>
+                        <b>Bunga Rampai Tembakau Madura</b>
+                      </h3>
+                      <br>
 
-            <div class="berita-content">
-         
-                <div class="align-self-center">
-                  <div class="right-content">
-                    <span>{{ $layanan->updated_at }}</span>
-                    <h2>{{ $layanan->title }} </h2>
-                     {!! "$layanan->content" !!}
-                  </div>
-                </div>
-        
-      
-              
-              
-
-        </div>
-      </div>
-    </div>
-
-
-
-
+                      <p align=justify>
+                        &emsp;&emsp;
+                        Tembakau (Nicotiana tabacum Linn.) adalah tanaman asli benua Amerika dan masuk ke Indonesia sekitar 400 tahun lalu, sehingga sudah 
+                        lama beradaptasi dengan lingkungan tumbuh yang beragam di Indonesia. Salah satu sentra utama tembakau di Indonesia 
+                        adalah Pulau Madura, di mana tembakau telah diintroduksikan di Kabupaten Sumenep, Pamekasan dan Sampang sekitar 170 tahun yang lalu.
+                        Tanaman tembakau mulai ditanam di Madura untuk tujuan komersial sekitar tahun 1861 oleh tiga orang Belanda, dan ternyata berhasil. Awalnya, pada saat sistem 
+                        tanam paksa (cultuurstelsel) mulai diberlakukan oleh pemerintahan penjajah Belanda pada tahun 1830, komoditas tembakau dianggap tidak sesuai untuk dibudidayakan di Madura. Alasannya adalah Pulau Madura beriklim kering dan tanahnya berkapur. Oleh karena Pulau Madura tidak dapat menyediakan lahan untuk sistem Tanam Paksa, maka banyak petani Madura yang dipaksa bekerja di perkebunan tembakau di Jawa. Namun berkat dukungan keterampilan berbudidaya tembakau dari petani Madura yang diperoleh di perkebunan tembakau di Jawa, akhirnya komoditas 
+                        tembakau dapat dibudidayakan dan dikembangkan di Kabupaten Sumenep, Pamekasan, dan Sampang.(Fulltext : Bunga Rampai - Tembakau Madura)</p>
+                        
+                        <p>Atau dibaca disini.&nbsp;</p>
+                        <p><iframe src="https://online.fliphtml5.com/rrrnw/nzpx/" width="640" height="480" frameborder="0" scrolling="no" seamless="seamless" allowfullscreen="allowfullscreen"></iframe></p>
                     </div>
+                    
                     <div class="col-lg-4">
                       <h2 class="mb-4  font-weight-600"style="color:#A4C639;">
                         Berita Populer
@@ -56,7 +54,7 @@
                               <div class="row">
                                 <div class="col-sm-8">
                                   <h5 class="font-weight-600 mb-1">
-                                    <a href="../berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
+                                    <a href="../tentang/berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
                                   </h5>
                                   <p class="fs-13 text-muted mb-0">
                                     <span><i class="fas fa-eye"></i> {{ $post2->views }}</span>
@@ -78,8 +76,7 @@
                         </div>
                        @endforeach
                       @endif
-                     
-           
+
                       <div class="trending">
                         <h2 class="mb-4 mt-4 font-weight-600"style="color:#A4C639;">
                           Informasi Publik
@@ -126,13 +123,7 @@
           </div>
         </div>
  
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script>
-myObject = new Vue({
-  el: '#app',
-  
-})
-</script>
+
 
     @include('front.partials.footer')
 @endsection

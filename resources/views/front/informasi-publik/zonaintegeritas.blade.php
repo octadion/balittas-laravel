@@ -12,38 +12,71 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-12">
-                 
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-8">
+                    <!-- isi konten -->
+                    <h2 class="font-weight-600 mb-4"style="color:#000000;">
+                      <center>
+                          ZONA INTEGRITAS
+                      </center>
+                    </h2>
+                    
+                    <center><img src="../assets/images/zi2019.png"
+                      alt="banner" class="img-fluid" height="450px" width="520px"/></center><br>
+                    <h3><strong>A. Indikator Proses</strong></h3>
+                    <br>
+                    <td class="list-hits"><span class="badge badge-info"><h4>&emsp; I. Manajemen Perubahan :</h4></span></td>
+                      <ol>
+                        <li>Tim Kerja
+                        <li>Dokumen Rencana Pembangunan ZI
+                        <li>Pemantauan dan Evaluasi Pembangunan WBK/WBBM
+                        <li>Perubahan pola pikir dan Budaya Kerja
+                      </ol>
 
-                               
-       <div class="berita berita2">
-      <div class="container">
+                    <td class="list-hits"><span class="badge badge-info"><h4>&emsp; II.Penataan Laksa Tatana :</h4></span></td>
+                      <ol>
+                        <li>Prosedur Operasional (SOP) Kegiatan Utama.</li>
+                        <li>E-office</li>
+                        <li>Keterbukaan Informasi Publik</li>
+                      </ol>
 
-            <div class="berita-content">
-         
-                <div class="align-self-center">
-                  <div class="right-content">
-                    <span>{{ $layanan->updated_at }}</span>
-                    <h2>{{ $layanan->title }} </h2>
-                     {!! "$layanan->content" !!}
-                  </div>
-                </div>
-        
-      
-              
-              
+                    <td class="list-hits"><span class="badge badge-info"><h4>&emsp; III.Penataan Sistem Manajemen SDM :</h4></span></td>
+                      <ol>
+                        <li>Perencanaan Kebutuhan Pegawai</li>
+                        <li>Pola Mutasi Internal</li>
+                        <li>Pengembangan Pegawai Berbasis Kompetensi</li>
+                        <li>Penetapan Kinerja Indikator</li>
+                        <li>Penegakan Aturan Disiplin /Kode Etik / Kode Perilaku Pegawai</li>
+                        <li>Sistem Informasi Pegawai</li>
+                      </ol>
 
-        </div>
-      </div>
-    </div>
+                    <td class="list-hits"><span class="badge badge-info"><h4>&emsp; IV.Penguatan Akuntabilitas :</h4></span></td>
+                      <ol>
+                        <li>Keterlibatan Pimpinan</li>
+                        <li>Pengelolaan Akuntabilitas Kinerja</li>
+                      </ol>
 
+                    <td class="list-hits"><span class="badge badge-info"><h4>&emsp; V.Penguatan Pengawasan :</h4></span></td>
+                      <ol>
+                        <li>Pengendalian Gratifikasi</li>
+                        <li>Penerapan SPIP</li>
+                        <li>Pengaduan Masyarakat</li>
+                        <li>Whistle Blowing System</li>
+                        <li>Pengawasan Benturan Kepentingan</li>
+                      </ol>
 
-
-
+                    <td class="list-hits"><span class="badge badge-info"><h4>&emsp; V.Peningkatan Kualitas Pelayanan Publik :</h4></span></td>
+                      <ol>
+                        <li>Standar Pelayanan</li>
+                        <li>Budaya Pelayanan Prima</li>
+                        <li>Penilaian Kepuasan Pelayanan</li>
+                      </ol>
+                    
                     </div>
+
+                    
                     <div class="col-lg-4">
                       <h2 class="mb-4  font-weight-600"style="color:#A4C639;">
                         Berita Populer
@@ -56,7 +89,7 @@
                               <div class="row">
                                 <div class="col-sm-8">
                                   <h5 class="font-weight-600 mb-1">
-                                    <a href="../berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
+                                    <a href="../tentang/berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
                                   </h5>
                                   <p class="fs-13 text-muted mb-0">
                                     <span><i class="fas fa-eye"></i> {{ $post2->views }}</span>
@@ -78,8 +111,7 @@
                         </div>
                        @endforeach
                       @endif
-                     
-           
+
                       <div class="trending">
                         <h2 class="mb-4 mt-4 font-weight-600"style="color:#A4C639;">
                           Informasi Publik
@@ -126,13 +158,7 @@
           </div>
         </div>
  
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script>
-myObject = new Vue({
-  el: '#app',
-  
-})
-</script>
+
 
     @include('front.partials.footer')
 @endsection
