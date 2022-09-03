@@ -893,6 +893,38 @@ ul.slick-dots {
 
 
 
+
+.services2 {
+	margin-top: 100px;
+}
+
+
+.service2-item .down-content {
+	background-color: #ffff;
+	padding: 70px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.service2-item .down-content i {
+	width: 100%;
+margin-bottom: 30px;
+align-items: center;
+text-align: center;
+}
+
+.service2-item .down-content h4 {
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0.25px;
+	margin-bottom: 15px;
+}
+
+.service2-item .down-content p {
+	margin-bottom: 20px;
+}
+
+
+
 /* Fun Facts */
 
 .fun-facts {
