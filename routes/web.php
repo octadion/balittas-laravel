@@ -8,6 +8,12 @@ use App\Http\Controllers\Admin\VarietyController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\PublicInfoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PublikasiController;
+use App\Http\Controllers\KomoditasController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\DataController;
 use App\Http\Controllers\Admin\UserController;
@@ -34,14 +40,53 @@ Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
 Route::get('/layanan',[HomeController::class,'layanan'])->name('layanan');
 Route::get('/berita',[HomeController::class,'berita'])->name('berita');
  Route::resource('/home',HomeController::class);
+
 Route::prefix('tentang')->group( function(){
     Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
-    //Route::get('/listnews/index', [PostController::class,'index'])->name('index');
     Route::get('/listnews',[HomeController::class,'listnews'])->name('listnews');
-   // Route::resource('/home',HomeController::class);
+    Route::get('/organisasi',[HomeController::class,'organisasi'])->name('organisasi');
+    Route::get('/visidanmisi',[HomeController::class,'visidanmisi'])->name('visidanmisi');
+    Route::get('/kebijakanmutu',[HomeController::class,'kebijakanmutu'])->name('kebijakanmutu');
+    Route::get('/sdm',[HomeController::class,'sdm'])->name('sdm');
     Route::get('/berita/{slug}',[HomeController::class,'berita'])->name('berita');
-      Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');
+    Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');
 });
+Route::prefix('publikasi')->group( function(){
+    Route::get('/prosiding',[PublikasiController::class,'prosiding'])->name('prosiding');
+    Route::get('/monograf-buku',[PublikasiController::class,'monografbuku'])->name('monograf-buku');
+    Route::get('/info-teknologi',[PublikasiController::class,'infoteknologi'])->name('info-teknologi');
+    Route::get('/leaflet',[PublikasiController::class,'leaflet'])->name('leaflet');
+    Route::get('/jurnalpenelitian',[PublikasiController::class,'jurnalpenelitian'])->name('jurnalpenelitian');
+    Route::get('/lainlain',[PublikasiController::class,'lainlain'])->name('lainlain');
+});
+Route::prefix('komoditas')->group( function(){
+    Route::get('/pemanis',[KomoditasController::class,'pemanis'])->name('pemanis');
+    Route::get('/tembakau',[KomoditasController::class,'tembakau'])->name('tembakau');
+    Route::get('/seratbatangdaun',[KomoditasController::class,'seratbatangdaun'])->name('seratbatangdaun');
+    Route::get('/seratbuah',[KomoditasController::class,'seratbuah'])->name('seratbuah');
+    Route::get('/tanamanpenghasilserat',[KomoditasController::class,'tanamanpenghasilserat'])->name('tanamanpenghasilserat');
+});
+Route::prefix('produk')->group( function(){
+    Route::get('/varietasunggul',[ProdukController::class,'varietasunggul'])->name('varietasunggul');
+    Route::get('/hakkekayaan',[ProdukController::class,'hakkekayaan'])->name('hakkekayaan');
+});
+Route::prefix('informasi-publik')->group( function(){
+    Route::get('/penghargaan',[InformasiPublikController::class,'penghargaan'])->name('penghargaan');
+    Route::get('/indexkepuasan',[InformasiPublikController::class,'indexkepuasan'])->name('indexkepuasan');
+    Route::get('/publichearing',[InformasiPublikController::class,'publichearing'])->name('publichearing');
+    Route::get('/zonaintegeritas',[InformasiPublikController::class,'zonaintegeritas'])->name('zonaintegeritas');
+    Route::get('/corevalues',[InformasiPublikController::class,'corevalues'])->name('corevalues');
+});
+Route::prefix('layanan')->group( function(){
+    Route::get('/inovasilayanan',[LayananController::class,'inovasilayanan'])->name('inovasilayanan');
+    Route::get('/penyediaansumber',[LayananController::class,'penyediaansumber'])->name('penyediaansumber');
+    Route::get('/labolatorium',[LayananController::class,'labolatorium'])->name('labolatorium');
+});
+Route::prefix('kontak')->group( function(){
+    Route::get('/kepuasanpelanggan',[KontakController::class,'kepuasanpelanggan'])->name('kepuasanpelanggan');
+    Route::get('/layananpengaduan',[KontakController::class,'layananpengaduan'])->name('layananpengaduan');
+});
+
 Route::prefix('informasi')->group( function(){
 
     Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');

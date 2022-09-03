@@ -12,45 +12,77 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-12">
-                      <h3 class="font-weight-600 mb-4"style="color:#A4C639;">
-                        Kabar Kebun
-                      </h3>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-lg-8">
-              @foreach ($post as $item)
-                      <div class="row">
-                        <div class="col-sm-4 grid-margin">
-                          <div class="rotate-img">
-                            <img
-                              src="../upload/post/thumbnail/{{ $item->thumbnail }}"
-                              alt="banner"
-                              class="img-fluid"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-sm-8 grid-margin">
-                          <h4 class="font-weight-600 mb-2"style="color:#000000;">
-                            {{-- <a href="../tentang/berita/{{ $item->id }}">{{ $item->title }}</a> --}}
-                            <a href="../tentang/berita/{{ $item->slug }}">{{ $item->title }}</a>
-                          </h4>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2"><i class="far fa-calendar-alt"></i> {{ date('d-m-Y',strtotime($item->date))}} &ensp;<i class="fa-solid fa-tags"></i> {{ $item->category->name }}</span>
-                          </p>
-                         <p class="fs-15">
-                           {{  (str_word_count(strip_tags(html_entity_decode( $item->content ))) > 60 ? substr(strip_tags(html_entity_decode( $item->content )),0,200)."[..]" : strip_tags(html_entity_decode( $item->content )))  }}
-                            
-                          </p>
-                        </div>
-                      </div>
-                @endforeach
-                      
-                    
-                    
-                      
-                    
+                    <!-- isi konten -->
+                    <h2 class="font-weight-600 mb-4"style="color:#000000;">
+                        <center>
+                         LAIN - LAIN
+                        </center>
+                      </h2><br>
+
+                      <p>January - 2014</p>
+                      <table class="category table table-striped table-bordered table-hover">
+                        <caption class="hide">List of articles Lain-lain Balittas Malang</caption>
+                        <thead>
+                          <tr class="bg-success">
+                            <th scope="col">
+                              <a href="#"><font color="black"><center>Judul</center></font></a></th>
+                                <th scope="col">
+                                  <a href="#"><font color="black"><center>Tanggal Ditayangkan</center></a></th>
+                                    <th scope="col">
+                                      <a href="#"><font color="black"><center>Penulis</center></a></th>
+                                    <th scope="col">
+                                      <a href="#"><font color="black"><center>Hit</center></a></th>
+                                    <th scope="col">
+                                      <a href="#"><font color="black"><center>Vote</center></a></th>
+                                    <th scope="col">
+                                      <a href="#"><font color="black"><center>Rating</center></a></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="cat-list-row0">
+                            <td class="list-title">Kapas</td>
+                                <td class="list-date small">28-01-2014</td>
+                                <td class="list-author">Ditulis oleh Editor</td>
+                                <td class="list-hits"><span class="badge badge-info">Dilihat: 1817</span></td>
+                                <td class="list-votes"><span class="badge badge-success">Vote: 0</span></td>
+                                <td class="list-ratings"><span class="badge badge-warning">Rating: 0</span></td>
+                          </tr>
+                            <tr class="cat-list-row1">
+                              <td class="list-title">Tembakau</td>
+                              <td class="list-date small">28-01-2014</td>
+                              <td class="list-author">Ditulis oleh Editor</td>
+                              <td class="list-hits"><span class="badge badge-info">Dilihat: 1647</td>
+                              <td class="list-votes"><span class="badge badge-success">Vote: 0</span></td>
+                              <td class="list-ratings"><span class="badge badge-warning">Rating: 0</span></td>
+                            </tr>
+                                      
+                            <tr class="cat-list-row0">
+                              <td class="list-title">Kenaf dan Rosela</td>
+                              <td class="list-date small">28-01-2014</td>
+                              <td class="list-author">Ditulis oleh Editor</td>
+                              <td class="list-hits"><span class="badge badge-info">Dilihat: 1804</span></td>
+                              <td class="list-votes"><span class="badge badge-success">Vote: 0</span></td>
+                              <td class="list-ratings"><span class="badge badge-warning">Rating: 0</span></td>
+                            </tr>
+                                      
+                            <tr class="cat-list-row1">
+                              <td class="list-title">Yute</a></td>
+                              <td class="list-date small">28-01-2014</td>
+                              <td class="list-author">Ditulis oleh Editor</td>
+                              <td hclass="list-hits"><span class="badge badge-info">Dilihat: 2227</span></td>
+                              <td class="list-votes"><span class="badge badge-success">Vote: 0</span></td>
+                              <td class="list-ratings"><span class="badge badge-warning">Rating: 0</span></td>
+                            </tr>
+                            </tbody>
+                      </table>
                     </div>
+                    
                     <div class="col-lg-4">
                       <h2 class="mb-4  font-weight-600"style="color:#A4C639;">
                         Berita Populer
@@ -64,7 +96,6 @@
                                 <div class="col-sm-8">
                                   <h5 class="font-weight-600 mb-1">
                                     <a href="../tentang/berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
-                                  
                                   </h5>
                                   <p class="fs-13 text-muted mb-0">
                                     <span><i class="fas fa-eye"></i> {{ $post2->views }}</span>

@@ -12,38 +12,47 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-12">
-                 
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-lg-8">
+                    <!-- isi konten -->
+                    <h2 class="font-weight-600 mb-4"style="color:#000000;">
+                        <center>
+                         INFO TEKNOLOGI
+                        </center>
+                      </h2><br>
 
-                               
-       <div class="berita berita2">
-      <div class="container">
+                      <h3 align=>
+                        <b>Tanaman Mimba (Azadirachta indica a. Juss.) sebagai Pestisida Ramah Lingkungan
+                        </b>
+                      </h3><br>
 
-            <div class="berita-content">
-         
-                <div class="align-self-center">
-                  <div class="right-content">
-                    <span>{{ $layanan->updated_at }}</span>
-                    <h2>{{ $layanan->title }} </h2>
-                     {!! "$layanan->content" !!}
-                  </div>
-                </div>
-        
-      
-              
-              
+                      <center><img src="../assets/images/MIMBA.png"
+                      alt="banner" class="img-fluid" height="450" width="550"/></center>
+                      
+                      <p>Aji Pangestu</p>
+                      <p><strong>Pendahuluan</strong></p>
+                      
+                      <p align=justify>
+                        &emsp;&emsp;
+                        Kurangnya pengetahuan serta kepedulian petani terhadap lingkungan menjadi salah satu faktor pemicu kerusakan alam, 
+                        hal ini diperburuk dengan begitu mudahnya petani membeli atau memperoleh obat pertanian kimia sehingga petani dapat 
+                        menggunakan pestisida kimia secara terus-menerus. Selain rusaknya alam akibat penggunaan pestisida kimia, residu yang 
+                        tertinggal dalam produk pertanian dapat berbahaya bagi kesehatan dalam jangka panjang. Salah satu solusinya adalah 
+                        penggantian atau pengendalian terpadu menggunakan pestisida nabati. Pestisida nabati dapat mengendalikan hama dan 
+                        penyakit pada tanaman namun bersifat ramah terhadap lingkungan dan relatif lebih aman dari segi kesehatan (Ruskin et al., 1992). 
+                        Alasan keamanan pestisida nabati dijelaskan oleh Suprapta (2003), bahan dasar pestisida nabati aman bagi manusia dan ternak 
+                        karna bersifat mudah terurai di alam sehingga tidak mencemari lingkungan dan relatif aman karena residunya mudah hilang.</p>
 
-        </div>
-      </div>
-    </div>
-
-
-
-
+                      <p align=justify>
+                        &emsp;&emsp;
+                        Mimba (Azadirachta indica A. Juss.) merupakan salah satu alternatif pengendalian hama dengan berbagai bahan aktif yang 
+                        terkandung, mimba merupakan pestisida nabati yang memiliki kemampuan anti-bakterial dan insektisidal sehingga dapat 
+                        digunakan sebagai pengendali Organisme Pengganggu Tanaman (OPT).</p>
                     </div>
+                    
                     <div class="col-lg-4">
                       <h2 class="mb-4  font-weight-600"style="color:#A4C639;">
                         Berita Populer
@@ -56,7 +65,7 @@
                               <div class="row">
                                 <div class="col-sm-8">
                                   <h5 class="font-weight-600 mb-1">
-                                    <a href="../berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
+                                    <a href="../tentang/berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
                                   </h5>
                                   <p class="fs-13 text-muted mb-0">
                                     <span><i class="fas fa-eye"></i> {{ $post2->views }}</span>
@@ -78,8 +87,6 @@
                         </div>
                        @endforeach
                       @endif
-                     
-           
                       <div class="trending">
                         <h2 class="mb-4 mt-4 font-weight-600"style="color:#A4C639;">
                           Informasi Publik
@@ -126,13 +133,7 @@
           </div>
         </div>
  
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script>
-myObject = new Vue({
-  el: '#app',
-  
-})
-</script>
+
 
     @include('front.partials.footer')
 @endsection

@@ -60,11 +60,61 @@ class HomeController extends Controller
      return view('front.services.tentang.listnews', compact('post'));
     
 	}
+
+	public function organisasi()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.organisasi', compact('post'));
+    
+	}
+
+	public function visidanmisi()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.visidanmisi', compact('post'));
+    
+	}
+
+	public function kebijakanmutu()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.kebijakanmutu', compact('post'));
+    
+	}
+
+	public function sdm()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.sdm', compact('post'));
+    
+	}
 	public function berita($slug)
 	{
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
-		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->where('slug', $slug)->firstOrFail();
-		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
+		//Post::find($slug)->increment('views');
+		//$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->whereId($id)->firstOrFail();
+		$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->where('slug',$slug)->firstOrFail();
+		$post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views');
+
+		$post->increment('views');
+
+
         //return $post;
 		 return view('front.services.tentang.berita', compact('post','post2'));
 	}
