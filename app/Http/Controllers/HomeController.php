@@ -55,7 +55,7 @@ class HomeController extends Controller
 		
 
       //  $post = Post::with('category')->where('user_id', Auth::user()->id);
-       $post   = Post::all();
+	 $post = Post::all();
 
      return view('front.services.tentang.listnews', compact('post'));
     
@@ -63,8 +63,8 @@ class HomeController extends Controller
 	public function berita($id)
 	{
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
-		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id)->firstOrFail();
-		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
+		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id)->whereCategory_id('6')->firstOrFail();
+		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->take(1);
         //return $post;
 		 return view('front.services.tentang.berita', compact('post','post2'));
 	}
@@ -72,7 +72,7 @@ class HomeController extends Controller
 	{
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
 		 $layanan = Public_info::select('id', 'title', 'content', 'slug','updated_at','created_at')->whereId($id)->firstOrFail();
-		  $layanan2 = Public_info::all('id', 'title', 'content', 'slug','updated_at','created_at');
+		  $layanan2 = Public_info::all('id', 'title', 'content', 'slug','updated_at','created_at')->take(1);
 		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
         //return $layanan;
 		 return view('front.services.tentang.layanan', compact('layanan','layanan2','post2'));
