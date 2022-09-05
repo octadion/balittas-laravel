@@ -1,5 +1,4 @@
- <?php
-
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -16,12 +15,8 @@ class AboutController extends Controller
         if(request()->ajax()){
             return datatables()->of($about)
             ->addColumn('aksi', function($about){
-                // $button ="<center><a href='/admin/about/".$about->id."/edit'><button class='edit btn btn-primary' id='".$about->id."'>Edit</button></a> ";
-                $button = "<center><button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Aksi</button>";
-                $button  .= " <div class='dropdown-menu'>
-                <a class='edit dropdown-item has-icon' href='/admin/about/".$about->id."/edit' id='".$about->id."'><i class='far fa-edit'></i> Edit</a>
-                <a class='detail dropdown-item has-icon' href='/admin/about/".$about->id."/detail'><i class='far fa-eye'></i> Detail</a>
-              </div>";
+                $button ="<center><a href='/admin/about/".$about->id."/edit'><button class='edit btn btn-primary' id='".$about->id."'>Edit</button></a> ";
+                
                 $button  .="<button class='hapus btn btn-danger' id='".$about->id."'>Hapus</button></center>";
                 return $button;
             })

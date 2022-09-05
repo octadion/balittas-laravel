@@ -32,10 +32,11 @@
                         </div>
                         <div class="col-sm-8 grid-margin">
                           <h4 class="font-weight-600 mb-2"style="color:#000000;">
-                            <a href="../tentang/berita/{{ $item->id }}">{{ $item->title }}</a>
+                            {{-- <a href="../tentang/berita/{{ $item->id }}">{{ $item->title }}</a> --}}
+                            <a href="../tentang/berita/{{ $item->slug }}">{{ $item->title }}</a>
                           </h4>
                           <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo 10 Minutes ago </span>
+                            <span class="mr-2"><i class="far fa-calendar-alt"></i> {{ date('d-m-Y',strtotime($item->date))}} &ensp;<i class="fa-solid fa-tags"></i> {{ $item->category->name }}</span>
                           </p>
                          <p class="fs-15">
                            {{  (str_word_count(strip_tags(html_entity_decode( $item->content ))) > 60 ? substr(strip_tags(html_entity_decode( $item->content )),0,200)."[..]" : strip_tags(html_entity_decode( $item->content )))  }}
@@ -52,118 +53,61 @@
                     </div>
                     <div class="col-lg-4">
                       <h2 class="mb-4  font-weight-600"style="color:#A4C639;">
-                        Artikel Populer
+                        Berita Populer
                       </h2>
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="border-bottom pb-4 pt-4">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <h5 class="font-weight-600 mb-1">
-                                  Ways to stay social online while in self..
-                                </h5>
-                                <p class="fs-13 text-muted mb-0">
-                                  <span class="mr-2">Photo </span>10 Minutes ago
-                                </p>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="rotate-img">
-                                  <img
-                                    src="../assets2/images/magazine/Magzine_1.jpg"
-                                    alt="banner"
-                                    class="img-fluid"
-                                  />
+                      @if ($populer_post)
+                       @foreach ($populer_post as $post2)
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="border-bottom pb-4 pt-4">
+                              <div class="row">
+                                <div class="col-sm-8">
+                                  <h5 class="font-weight-600 mb-1">
+                                    <a href="../tentang/berita/{{ $post2->slug }}">{{  (str_word_count(strip_tags(html_entity_decode( $post2->title ))) > 9 ? substr(strip_tags(html_entity_decode( $post2->title )),0,35)."[..]" : strip_tags(html_entity_decode( $post2->title )))  }}</a>
+                                  
+                                  </h5>
+                                  <p class="fs-13 text-muted mb-0">
+                                    <span><i class="fas fa-eye"></i> {{ $post2->views }}</span>
+                                  </p>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="rotate-img">
+                                    <img
+                                      src="/upload/post/thumbnail/{{ $post2->thumbnail }}"
+                                      alt="banner"
+                                      class="img-fluid"
+                                      height="50"width="150"
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="border-bottom pb-4 pt-4">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <h5 class="font-weight-600 mb-1">
-                                  Premier League players join charity..
-                                </h5>
-                                <p class="fs-13 text-muted mb-0">
-                                  <span class="mr-2">Photo </span>10 Minutes ago
-                                </p>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="rotate-img">
-                                  <img
-                                    src="../assets2/images/magazine/Magzine_2.jpg"
-                                    alt="banner"
-                                    class="img-fluid"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="pt-4">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <h5 class="font-weight-600 mb-1">
-                                  UK Athletics board changed stance on..
-                                </h5>
-                                <p class="fs-13 text-muted mb-0">
-                                  <span class="mr-2">Photo </span>10 Minutes ago
-                                </p>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="rotate-img">
-                                  <img
-                                    src="../assets2/images/magazine/Magzine_3.jpg"
-                                    alt="banner"
-                                    class="img-fluid"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                       @endforeach
+                      @endif
 
                       <div class="trending">
                         <h2 class="mb-4 mt-4 font-weight-600"style="color:#A4C639;">
                           Informasi Publik
                         </h2>
                         <div class="mb-4">
-                          <div class="rotate-img">
+                          <a href="{{ url('/tentang/layanan/1') }}"><div class="rotate-img">
                             <img
                               src="{{ asset('assets/images/beraklak.jpeg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
-                          </div>
-                          <h3 class="mt-3 font-weight-600">
-                            <a href="{{ url('/tentang/layanan/1') }}"> Core Values ASN BerAkhlak</a>
-                          
-                          </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
+                          </div></a>
                         </div>
                         <div class="mb-4">
-                          <div class="rotate-img">
+                           <a href="{{ url('/tentang/layanan/2') }}"><div class="rotate-img">
                             <img
                               src="{{ asset('assets/images/zona_integritas.jpg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
-                          </div>
-                          <h3 class="mt-3 font-weight-600">
-                            <a href="{{ url('/tentang/layanan/2') }}">Zona Integritas</a>
-                          </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
+                          </div></a>
                         </div>
              
                       </div>

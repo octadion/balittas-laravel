@@ -40,7 +40,7 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		   $post   = Post::all();
+		   $post   =  Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->skip(0)->take(3);
 
      	
 		
@@ -55,16 +55,66 @@ class HomeController extends Controller
 		
 
       //  $post = Post::with('category')->where('user_id', Auth::user()->id);
-	 $post = Post::all();
+       $post   = Post::all();
 
      return view('front.services.tentang.listnews', compact('post'));
     
 	}
-	public function berita($id)
+
+	public function organisasi()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.organisasi', compact('post'));
+    
+	}
+
+	public function visidanmisi()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.visidanmisi', compact('post'));
+    
+	}
+
+	public function kebijakanmutu()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.kebijakanmutu', compact('post'));
+    
+	}
+
+	public function sdm()
+	{
+		
+
+      //  $post = Post::with('category')->where('user_id', Auth::user()->id);
+       $post   = Post::all();
+
+     return view('front.services.tentang.sdm', compact('post'));
+    
+	}
+	public function berita($slug)
 	{
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
-		 $post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id)->whereCategory_id('6')->firstOrFail();
-		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->take(1);
+		//Post::find($slug)->increment('views');
+		//$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->whereId($id)->firstOrFail();
+		$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->where('slug',$slug)->firstOrFail();
+		$post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->skip(0)->take(3);
+
+		$post->increment('views');
+
+
         //return $post;
 		 return view('front.services.tentang.berita', compact('post','post2'));
 	}
@@ -72,7 +122,7 @@ class HomeController extends Controller
 	{
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
 		 $layanan = Public_info::select('id', 'title', 'content', 'slug','updated_at','created_at')->whereId($id)->firstOrFail();
-		  $layanan2 = Public_info::all('id', 'title', 'content', 'slug','updated_at','created_at')->take(1);
+		  $layanan2 = Public_info::all('id', 'title', 'content', 'slug','updated_at','created_at');
 		  $post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date');
         //return $layanan;
 		 return view('front.services.tentang.layanan', compact('layanan','layanan2','post2'));

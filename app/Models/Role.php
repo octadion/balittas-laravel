@@ -11,4 +11,9 @@ class Role extends Model
     protected $fillable = [
         'name', 'redirect_to'
     ];
+
+    public function user(){
+        return $this->hasMany(User::class);
+    }
 }
+

@@ -14,12 +14,12 @@ class DataController extends Controller
         if(request()->ajax()){
             return datatables()->eloquent($data)
             ->addColumn('aksi', function($data){
-                // $button ="<center><a href='/admin/post/".$post->id."/edit'><button class='edit btn btn-primary' id='".$post->id."'>Edit</button></a> ";
-                $button = "<center><button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Aksi</button>";
-                $button  .= " <div class='dropdown-menu'>
-                <a class='edit dropdown-item has-icon' href='/admin/data_variety/".$data->id."/edit' id='".$data->id."'><i class='far fa-edit'></i> Edit</a>
-                <a class='detail dropdown-item has-icon' href='/admin/data_variety/".$data->id."/detail'><i class='far fa-eye'></i> Detail</a>
-              </div>";
+                $button ="<center><a href='/admin/data_variety/".$data->id."/edit'><button class='edit btn btn-primary' id='".$data->id."'>Edit</button></a> ";
+            //     $button = "<center><button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Aksi</button>";
+            //     $button  .= " <div class='dropdown-menu'>
+            //     <a class='edit dropdown-item has-icon' href='/admin/data_variety/".$data->id."/edit' id='".$data->id."'><i class='far fa-edit'></i> Edit</a>
+            //     <a class='detail dropdown-item has-icon' href='/admin/data_variety/".$data->id."/detail'><i class='far fa-eye'></i> Detail</a>
+            //   </div>";
                 $button  .="<button class='hapus btn btn-danger' id='".$data->id."'>Hapus</button></center>";
                 return $button;
             })

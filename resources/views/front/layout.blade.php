@@ -18,13 +18,14 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-finance-business.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
-    <link href="assets/template/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/template/css/style.css') }}" rel="stylesheet">
     <link href="assets/template/images/img/favicon.ico" rel="icon">
         <link rel="stylesheet" href="{{asset('assets2/css/style.css')}}">
 
+      
   </head>
   <body>
-  
+    
     {{-- @include('front.partials.header') --}}
         
         @yield('content')
@@ -56,5 +57,15 @@
         }
     }
   </script>
+
+  <script>
+    function tutuppopup(){
+      document.getElementById('parentpopup').style.display= "none";
+    }
+    function popup(){
+      document.getElementById('parentpopup').click();
+  }
+  </script>
+
   </body>
 </html>
