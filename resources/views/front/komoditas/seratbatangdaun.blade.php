@@ -124,35 +124,22 @@
                           Informasi Publik
                         </h2>
                         <div class="mb-4">
-                          <div class="rotate-img">
+                          <a href="{{ url('/tentang/layanan/1') }}"><div class="rotate-img">
                             <img
                               src="{{ asset('assets/images/beraklak.jpeg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
-                          </div>
-                          <h3 class="mt-3 font-weight-600">
-                            <a href="{{ url('/tentang/layanan/1') }}"> Core Values ASN BerAkhlak</a>
-                          
-                          </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
+                          </div></a>
                         </div>
                         <div class="mb-4">
-                          <div class="rotate-img">
+                           <a href="{{ url('/tentang/layanan/2') }}"><div class="rotate-img">
                             <img
                               src="{{ asset('assets/images/zona_integritas.jpg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
-                          </div>
-                          <h3 class="mt-3 font-weight-600">
-                            <a href="{{ url('/tentang/layanan/2') }}">Zona Integritas</a>
-                          </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
+                          </div></a>
                         </div>
              
                       </div>

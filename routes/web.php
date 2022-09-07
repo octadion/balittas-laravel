@@ -50,6 +50,7 @@ Route::prefix('tentang')->group( function(){
     Route::get('/sdm',[HomeController::class,'sdm'])->name('sdm');
     Route::get('/berita/{slug}',[HomeController::class,'berita'])->name('berita');
     Route::get('/layanan/{id}',[HomeController::class,'layanan'])->name('layanan');
+    Route::get('/katapimpinan',[HomeController::class,'katapimpinan'])->name('katapimpinan');
 });
 Route::prefix('publikasi')->group( function(){
     Route::get('/prosiding',[PublikasiController::class,'prosiding'])->name('prosiding');

@@ -22,7 +22,9 @@
                         <center>
                          LEAFLET
                         </center>
-                      </h2><br>
+                      </h2>
+
+                      <br>
                       <h3 align=>
                         <b>TEMBAKAU MADURA
                         </b>
@@ -33,6 +35,34 @@
                       alt="banner" class="img-fluid"/>
                       &emsp;
                       <img src="../assets/images/leaflet2.jpg"
+                      alt="banner" class="img-fluid"/>
+
+
+
+                      <br>
+                      <h3 class=" mt-4">
+                        <b>PROSESING TEMBAKAU RAJANGAN TEMANGGUNG
+                        </b>
+                      </h3>
+                      <br>
+                      
+                      <img src="../assets/images/prosesingtembakautemanggung1.jpg"
+                      alt="banner" class="img-fluid"/>
+                      &emsp;
+                      <img src="../assets/images/prosesingtembakautemanggung2.jpg"style="height: 400px;width: 700px"
+                      alt="banner" class="img-fluid"/>
+
+                      <br>
+                      <h3 class=" mt-4">
+                        <b>ALAT DAN MESIN PERAJANG DAUN TEMBAKAU
+                        </b>
+                      </h3>
+                      <br>
+                      
+                      <img src="../assets/images/mesintembakau.jpg"
+                      alt="banner" class="img-fluid"/>
+                      &emsp;
+                      <img src="../assets/images/mesinrajangtembakau2.jpg"style="height: 400px;width: 700px"
                       alt="banner" class="img-fluid"/>
                     </div>
                     
@@ -76,35 +106,31 @@
                           Informasi Publik
                         </h2>
                         <div class="mb-4">
-                          <div class="rotate-img">
+                          <a href="{{ url('/tentang/layanan/1') }}"><div class="rotate-img">
                             <img
                               src="{{ asset('assets/images/beraklak.jpeg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
-                          </div>
+                          </div></a>
                           <h3 class="mt-3 font-weight-600">
-                            <a href="{{ url('/tentang/layanan/1') }}"> Core Values ASN BerAkhlak</a>
+                            
                           
                           </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
+         
                         </div>
                         <div class="mb-4">
-                          <div class="rotate-img">
+                           <a href="{{ url('/tentang/layanan/2') }}"><div class="rotate-img">
                             <img
                               src="{{ asset('assets/images/zona_integritas.jpg') }}"
                               alt="banner"
                               class="img-fluid"
                             />
-                          </div>
+                          </div></a>
                           <h3 class="mt-3 font-weight-600">
-                            <a href="{{ url('/tentang/layanan/2') }}">Zona Integritas</a>
+                           
                           </h3>
-                          <p class="fs-13 text-muted mb-0">
-                            <span class="mr-2">Photo </span>10 Minutes ago
-                          </p>
+         
                         </div>
              
                       </div>

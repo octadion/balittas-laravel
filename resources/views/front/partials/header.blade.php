@@ -11,7 +11,11 @@
 <!-- ***** Preloader End ***** -->
 
 <!-- Header -->
+<<<<<<< HEAD
 <a href="https://wa.me/6285334638792"><img src="{{ asset('assets//images/wa3.gif') }}" class="buttonchat"></a>
+=======
+<a href="https://api.whatsapp.com/send?phone=6281252233447&text=Halo%20Balittas%20%3A%0ANama%20%3A%20%0AInstansi%20%3A%0ANo.%20HP%3A%0AEmail%20%3A%20%0APertanyaan%20yang%20diajukan%3A"><img src="{{ asset('assets//images/wa3.gif') }}" class="buttonchat"></a>
+>>>>>>> ec655ec7a3fbf958027f6a7ea9d47ca9686776bd
 <div class="sub-header">
   <div class="container">
     <div class="row">

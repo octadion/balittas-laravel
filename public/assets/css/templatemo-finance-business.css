@@ -581,15 +581,18 @@ header .navbar {
 }
 
 .Modern-Slider .item-1 .img-fill {
-	background-image: url(../images/slide-3.jpeg);
+background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	 object-fit: cover;
 }
 
 .Modern-Slider .item-2 .img-fill {
-	background-image: url(../images/slide-4.jpg);
+	background-image: url(/upload/post/thumbnail/1658818486-62ce95a8b8914.jpg);
 }
 
 .Modern-Slider .item-3 .img-fill {
-	background-image: url(../images/gambar_hutan2.png);
+	background-image: url(/upload/post/thumbnail/cmv2.jpg);
 }
 
 .Modern-Slider .NextArrow{
