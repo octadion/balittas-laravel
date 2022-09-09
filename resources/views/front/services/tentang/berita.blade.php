@@ -36,8 +36,20 @@
                   </div>
                 </div>
         </div>
-        <span><i class="fas fa-eye"></i> Total Dilihat {{ $post->views }}</span>
-        <br>
+        <div id="disqus_recommendations"></div>
+        <script> 
+          (function() { // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+          var d = document, s = d.createElement('script'); // IMPORTANT: Replace EXAMPLE with your forum shortname!
+          s.src = 'https://balittas.disqus.com/recommendations.js'; s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+          </script>
+          <noscript>
+          Please enable JavaScript to view the 
+          <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+          comments powered by Disqus.
+          </a>
+          </noscript>
         <div id="disqus_thread"></div>
         <script>
             /**
@@ -54,10 +66,20 @@
             s.src = 'https://balittas-1.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
+            DISQUSWIDGETS.getCount({reset: true});
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//balittas-1.disqus.com/count.js" async></script>
       </div>
+      <span>&ensp;&ensp;
+            <i class="fa-solid fa-user"></i> {{ $post->user->first_name }}&ensp;
+      </span>
+      <span><i class="fa-solid fa-tags"></i> {{ $post->category->name }} &ensp;
+            <i class="fa-solid fa-comments"></i> <a href="../berita/{{ $post->slug }}#disqus_thread" style="color: black"></a> &ensp;
+            <i class="far fa-calendar-alt"></i> {{ date('d-m-Y',strtotime($post->date))}} &ensp;
+            <i class="fas fa-eye"></i> Total Dilihat {{ $post->views }}
+      </span>
     </div>
                     </div>
                     <div class="col-lg-4">
