@@ -109,7 +109,7 @@ class HomeController extends Controller
 		//$post = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date')->whereId($id);
 		//Post::find($slug)->increment('views');
 		//$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->whereId($id)->firstOrFail();
-		$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->where('slug',$slug)->firstOrFail();
+		$post = Post::select('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views','user_id')->where('slug',$slug)->firstOrFail();
 		$post2 = Post::all('id', 'title', 'thumbnail', 'content', 'description', 'slug', 'category_id', 'date','views')->skip(0)->take(3);
 
 		$post->increment('views');
